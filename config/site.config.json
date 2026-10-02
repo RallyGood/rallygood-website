@@ -11,6 +11,6 @@
     "formEndpoints": "Contact form: paste the Web3Forms access key (public by design) into web3formsAccessKey. Newsletter: paste the beehiiv subscribe-form embed URL (the iframe src) into beehiivEmbedUrl. While empty, both fall back to mailto. contactFormEndpoint is an optional generic override."
   },
   "contactFormEndpoint": "",
-  "web3formsAccessKey": "",
+  "web3formsAccessKey": "12e1bd91-716d-42b8-b5a4-0ed322df7e20",
   "beehiivEmbedUrl": ""
 }
