@@ -25,6 +25,6 @@
 
 ## Contact form (Web3Forms) and newsletter (beehiiv) – decided, needs your keys
 - Contact form: create a Web3Forms access key for info@rallygood.org.uk (web3forms.com, key is emailed), paste it into `web3formsAccessKey` in `config/site.config.json`, push.
-- Newsletter: in beehiiv create a publication, make a subscribe form, copy its embed (iframe) URL into `beehiivEmbedUrl`, push. Turn on double opt-in and add the charity name and postal contact in beehiiv's footer settings.
+- Newsletter: DONE – beehiiv publication "RallyGood" and subscribe form created; embed URL set in config. Remaining in beehiiv: postal address in email footer settings, welcome email, sender name/reply-to, check free-plan limits after the Pro trial.
 - Until both are set the site falls back to mailto and the privacy notice says so; once set it names Web3Forms and beehiiv automatically.
 - Then: accept each provider's data-processing terms, and have trustees review the privacy notice.
