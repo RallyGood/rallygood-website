@@ -8,13 +8,19 @@ Static multi-page site. Source in `src/`, built to `dist/` by `node scripts/buil
 - `registrationStatus: "pending"` → every page shows **"Charity registration pending"**. The placeholder `charityNumber` (`1234567890`) is **never** written to the built site; the build fails if it leaks.
 - When registration completes: set the real `charityNumber`, set `registrationStatus` to `"registered"`, review the wording noted in `OUTSTANDING.md`, push to `main`.
 
-## Hosting setup (one-off)
+## Hosting status (set up 2 Oct 2026)
+- GitHub: `RallyGood/rallygood-website` (public), Pages source = GitHub Actions, custom domain `rallygood.org.uk`.
+- Cloudflare (RallyGood account, free plan): zone `rallygood.org.uk` with the GitHub A/AAAA/`www` records below (all DNS-only) plus the Microsoft 365 email records (MX, SPF, MS verification TXT, `autodiscover`).
+- Namecheap nameservers set to `henry.ns.cloudflare.com` / `ines.ns.cloudflare.com`.
+- After Cloudflare shows the zone Active and GitHub's DNS check passes: tick **Enforce HTTPS** in GitHub Pages settings.
+
+## Hosting setup (reference)
 1. Create a GitHub repo (e.g. `rallygood-website`), push this folder to `main`.
 2. Repo → Settings → Pages → Source: **GitHub Actions**. Custom domain: `rallygood.org.uk`; tick **Enforce HTTPS** once the certificate is issued.
 3. Cloudflare DNS for `rallygood.org.uk` (set the records to **DNS only / grey cloud** until GitHub has issued the certificate):
    - `A` `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - `AAAA` `@` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - `CNAME` `www` → `<github-username>.github.io`
+   - `CNAME` `www` → `rallygood.github.io`
    - Recommended: verify the domain in GitHub (Settings → Pages → Add a domain) to prevent takeover.
    - Cloudflare: SSL/TLS mode **Full**; optionally redirect `www` → apex with a Redirect Rule.
 4. Email (`info@rallygood.org.uk`): add MX records for whichever mailbox provider or Cloudflare Email Routing you use, plus SPF/DKIM/DMARC. The website only links to this address.
