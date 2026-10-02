@@ -6,7 +6,7 @@
 3. **info@rallygood.org.uk** – confirm the mailbox/forwarding exists (MX, SPF, DKIM, DMARC). Not verifiable from here.
 
 ## Decisions
-4. **98/2 vs 85/15** – the site says 98% Drop / 2% operating (as in the project brief). Your *Financial Controls Policy* (registration package) says "85/2 Model … 85% project, 15% operating". Pick one and fix the policy or the site before launch. The site calls 98/2 "planned".
+4. **Split – resolved:** site now says 85% Drop / 15% operating (per Raf). The Financial Controls Policy wording ("85/2 Model") has a typo and should read 85/15. Check the registration package matches.
 5. **Public identity details** – not published: trustee names, trustee/home addresses, principal office (2 Nineveh Gardens is listed as both the principal office and a trustee's address in your documents). Decide whether to show trustees and what public address to use (the Charity Commission register will publish the principal office).
 6. **Registration status** – documents are dated 15 June 2026 but I can't tell whether the application was submitted. The site says only "Charity registration pending". When approved: set real number + `"registered"` in `config/site.config.json`, and review wording on About/FAQ/Transparency.
 7. **Example Drops** – targets (£1,500–£7,500) and unit costs (£15–£75) are illustrative figures from the earlier draft. Confirm they are fine as examples, or replace them in `src/data/drops.json`.

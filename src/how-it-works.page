@@ -1,6 +1,6 @@
 ---
 title: How it works
-description: How RallyGood Drops will work – verify, fund, deliver, prove – including the planned 98/2 split, what happens if a Drop raises too much or too little, and our dignity-first promise.
+description: How RallyGood Drops will work – verify, fund, deliver, prove – including the planned 85/15 split, what happens if a Drop raises too much or too little, and our dignity-first promise.
 ---
     <section class="page-hero section-soft">
       <div class="shell">
@@ -43,7 +43,7 @@ description: How RallyGood Drops will work – verify, fund, deliver, prove – 
       <div class="shell donate-grid">
         <div class="donation-panel" data-split>
           <p class="eyebrow">Illustration only</p>
-          <h2>98% to the Drop. 2% to keep it accountable.</h2>
+          <h2>85% to the Drop. 15% to keep it accountable.</h2>
           <p class="lead-small">Try an amount to see how a gift would be split once donations open. <strong>This is not a donation form and no payment is taken.</strong></p>
           <div class="amount-grid" role="group" aria-label="Example amounts">
             <button type="button" data-amount="10">£10</button>
@@ -54,10 +54,10 @@ description: How RallyGood Drops will work – verify, fund, deliver, prove – 
           <label for="custom-amount">Example amount (£)</label>
           <input id="custom-amount" type="number" inputmode="decimal" min="1" step="any" value="25">
           <div class="split-output" aria-live="polite">
-            <div><span>Drop fund</span><strong id="project-share">£24.50</strong></div>
-            <div><span>Operating support</span><strong id="ops-share">£0.50</strong></div>
+            <div><span>Drop fund</span><strong id="project-share">£21.25</strong></div>
+            <div><span>Operating support</span><strong id="ops-share">£3.75</strong></div>
           </div>
-          <p class="small-print">The 2% is intended to cover payment processing, partner verification, safeguarding, reporting, website and governance. Not zero admin – honest admin.</p>
+          <p class="small-print">The 15% is intended to cover payment processing, partner verification, safeguarding, reporting, website and governance. Not zero admin – honest admin.</p>
         </div>
         <div>
           <p class="eyebrow">If a target is missed or exceeded</p>

@@ -56,11 +56,11 @@ with sync_playwright() as p:
     pg.keyboard.press('Escape')
     if pg.is_visible('#nav-menu a[href="/contact.html"]'): problems.append('Escape did not close nav')
     pg.goto(base + '/drops.html'); pg.wait_for_selector('.drop-card')
-    if pg.locator('.drop-card').count() != 4: problems.append('drops: expected 4 cards')
+    if pg.locator('.drop-card').count() != 5: problems.append('drops: expected 5 cards')
     pg.click('.filter-button[data-filter="Food"]')
     if pg.locator('.drop-card').count() != 1: problems.append('drops: Food filter')
     pg.goto(base + '/how-it-works.html'); pg.fill('#custom-amount', '100')
-    if pg.inner_text('#project-share') != '£98.00' or pg.inner_text('#ops-share') != '£2.00': problems.append('split calc wrong')
+    if pg.inner_text('#project-share') != '£85.00' or pg.inner_text('#ops-share') != '£15.00': problems.append('split calc wrong')
     # form: empty submit shows errors, valid submit builds mailto
     pg.goto(base + '/contact.html?topic=sponsor')
     if pg.input_value('#cf-topic') != 'sponsor': problems.append('topic prefill failed')

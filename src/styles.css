@@ -189,6 +189,7 @@ button { cursor: pointer; }
 .tag.food { background: rgba(255,155,35,.18); color: #8a4900; }
 .tag.hygiene { background: rgba(57,216,255,.22); color: #005b73; }
 .tag.warmth { background: rgba(255,101,182,.18); color: #9d185e; }
+.tag.wellbeing { background: rgba(111,60,255,.14); color: #4a22b8; }
 .tag.shelter { background: rgba(52,214,125,.18); color: #086c38; }
 .drop-card h3 { margin: 0; font-size: 1.45rem; letter-spacing: -.05em; line-height: 1; }
 .drop-card p { margin: 0; color: var(--muted); }

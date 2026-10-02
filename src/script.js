@@ -70,7 +70,7 @@
     });
   }
 
-  /* ---------- 98/2 illustration ---------- */
+  /* ---------- 85/15 illustration ---------- */
   var split = document.querySelector('[data-split]');
   if (split) {
     var input = split.querySelector('#custom-amount');
@@ -79,7 +79,7 @@
     var btns = split.querySelectorAll('.amount-grid button');
     var update = function () {
       var amt = Math.max(0, Number(input.value) || 0);
-      var opsPence = Math.round(amt * 100 * 0.02);
+      var opsPence = Math.round(amt * 100 * 0.15);
       var projPence = Math.round(amt * 100) - opsPence;
       proj.textContent = gbp2.format(projPence / 100);
       ops.textContent = gbp2.format(opsPence / 100);
