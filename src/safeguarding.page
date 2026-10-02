@@ -1,0 +1,37 @@
+---
+title: Safeguarding
+description: How RallyGood will protect children and adults at risk, including photo consent and partner requirements.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Policies</p>
+        <h1>Safeguarding</h1>
+        <p class="lead-small">A summary of how RallyGood will protect people, particularly children and adults at risk.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell narrow prose">
+        <h2>Our commitment</h2>
+        <p>We are committed to protecting people from harm and abuse, responding properly to safeguarding concerns, and making safeguarding everyone’s responsibility. This applies to trustees, volunteers and the partners we work with.</p>
+
+        <h2>Children and adults at risk</h2>
+        <p>We recognise our duty of care to children (anyone under 18) and to adults who may be vulnerable, including people living in poverty or in conflict-affected areas. Trustees and partners must complete the appropriate checks before any contact with children. Anyone disqualified from working with children cannot be involved in RallyGood activities.</p>
+
+        <h2>Photography and consent</h2>
+        <ul>
+          <li>We ask permission before taking or sharing photographs of adults.</li>
+          <li>For children, written consent from a parent or guardian is required, stating how the photo will be used.</li>
+          <li>Photos must not identify children, or show anyone in a way that could cause harm or distress.</li>
+          <li>We do not publish exact locations where that could put people at risk.</li>
+        </ul>
+
+        <h2>Our partners</h2>
+        <p>Every partner must demonstrate that it has safeguarding policies and procedures, train its staff, and comply with relevant child protection and adult safeguarding law. We check this before a Drop launches.</p>
+
+        <h2>Raising a concern</h2>
+        <p>If you are worried about the safety or welfare of anyone connected with RallyGood, email <a class="text-link" href="mailto:{{EMAIL}}?subject=Safeguarding%20concern">{{EMAIL}}</a>. If someone is in immediate danger, contact the police or the relevant local authority first. Serious concerns are reported to the Charity Commission.</p>
+
+        <p class="small-print">This is a summary. Last updated: October 2026.</p>
+      </div>
+    </section>

@@ -1,0 +1,12 @@
+{
+  "siteName": "RallyGood",
+  "domain": "rallygood.org.uk",
+  "siteUrl": "https://rallygood.org.uk",
+  "contactEmail": "info@rallygood.org.uk",
+  "registrationStatus": "pending",
+  "charityNumber": "1234567890",
+  "_notes": {
+    "charityNumber": "TEMPORARY PLACEHOLDER. Not valid. Never published while registrationStatus is 'pending' (the build fails if it leaks).",
+    "howToGoLive": "When the Charity Commission issues the real number: set charityNumber to it and registrationStatus to 'registered', then push to main."
+  }
+}

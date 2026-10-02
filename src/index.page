@@ -1,0 +1,144 @@
+---
+title: RallyGood
+description: RallyGood is a charity in development that will rally people around urgent practical needs – food, hygiene, warmth and shelter – and publish clear proof of what was funded and delivered.
+---
+    <section class="hero section">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="blob blob-one"></span><span class="blob blob-two"></span><span class="blob blob-three"></span><span class="grid-glow"></span>
+      </div>
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> A rapid essentials charity in development</p>
+          <h1>Small appeals. Real essentials. Clear proof.</h1>
+          <p class="lead">RallyGood will rally people around urgent needs like food, hygiene, warmth and shelter – then show what was funded, who delivered it and what proof was received.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="drops.html">See planned Drops</a>
+            <a class="button button-light" href="how-it-works.html">How it works</a>
+          </div>
+          <div class="hero-badges" aria-label="RallyGood principles">
+            <span>Verified partners</span><span>98/2 transparent giving</span><span>Close-out reports</span>
+          </div>
+        </div>
+
+        <aside class="phone-card" aria-label="Example Drop preview">
+          <div class="phone-top"><span></span></div>
+          <div class="phone-screen">
+            <div class="mini-row"><span class="mini-label">Example Drop</span><span class="status-pill planned">Not yet open</span></div>
+            <h2>Warmth Drop</h2>
+            <p>This is what a Drop will look like: a clear need, a target, a partner and a proof plan.</p>
+            <div class="progress-wrap" role="img" aria-label="No funds raised yet"><span style="--progress:0%"></span></div>
+            <div class="console-stats">
+              <div><strong>£0</strong><span>raised</span></div>
+              <div><strong>£4,000</strong><span>example target</span></div>
+              <div><strong>98/2</strong><span>planned split</span></div>
+            </div>
+            <a class="button button-dark full" href="contact.html?topic=updates">Tell me when we launch</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="RallyGood model highlights">
+      <div class="shell proof-strip-grid">
+        <div><strong>4</strong><span>aid lanes</span></div>
+        <div><strong>1</strong><span>verified partner per Drop</span></div>
+        <div><strong>98/2</strong><span>planned transparent split</span></div>
+        <div><strong>Every</strong><span>Drop closes with proof</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="what">
+      <div class="shell">
+        <div class="section-heading wide">
+          <p class="eyebrow">The idea</p>
+          <h2>Every campaign is a Drop.</h2>
+          <p>A Drop is a small, specific appeal for practical essentials. It has a target, a cost breakdown, a verified delivery partner and a published close-out report. Start small. Finish clearly.</p>
+        </div>
+        <div class="lane-grid">
+          <article class="lane-card"><span class="tag food">Food</span><h3>Food</h3><p>Parcels and hot meals bought locally.</p></article>
+          <article class="lane-card"><span class="tag hygiene">Hygiene</span><h3>Water &amp; hygiene</h3><p>Soap, period products, nappies, filters.</p></article>
+          <article class="lane-card"><span class="tag warmth">Warmth</span><h3>Warmth</h3><p>Blankets, thermal layers, winter packs.</p></article>
+          <article class="lane-card"><span class="tag shelter">Shelter</span><h3>Shelter</h3><p>Tarps, tents, bedding where delivery is safe.</p></article>
+        </div>
+        <p class="center-note"><a class="text-link" href="drops.html">Browse planned example Drops →</a></p>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="proof">
+      <div class="shell proof-grid">
+        <div>
+          <p class="eyebrow light">Proof over promises</p>
+          <h2>Trust is the product.</h2>
+          <p class="lead-small">If an appeal cannot be verified, costed, delivered and reported, it should not go live.</p>
+          <ul class="check-list">
+            <li>Partner checked before launch</li>
+            <li>Target and item costs shown upfront</li>
+            <li>98/2 split visible before giving</li>
+            <li>Receipts or cost summary kept</li>
+            <li>Dignity-first photos where safe</li>
+            <li>Close-out report after delivery</li>
+          </ul>
+        </div>
+        <div class="proof-card-stack" aria-label="Proof Card template">
+          <article class="proof-card top-card">
+            <div class="proof-card-header"><span>Proof Card template</span><strong>Not a real Drop</strong></div>
+            <div class="proof-line"><span>Need verified by</span><strong class="ph">Partner name + date</strong></div>
+            <div class="proof-line"><span>Amount raised</span><strong class="ph">£ –</strong></div>
+            <div class="proof-line"><span>Amount spent</span><strong class="ph">£ –</strong></div>
+            <div class="proof-line"><span>Items purchased</span><strong class="ph">Itemised list</strong></div>
+            <div class="proof-line"><span>Delivery evidence</span><strong class="ph">Sign-off, safe photos</strong></div>
+            <div class="proof-line"><span>Close-out</span><strong class="ph">Published report</strong></div>
+          </article>
+          <article class="proof-card back-card one"></article>
+          <article class="proof-card back-card two"></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="shell">
+        <div class="section-heading wide">
+          <p class="eyebrow">How it works</p>
+          <h2>Verify. Fund. Deliver. Prove.</h2>
+          <p>Four steps keep RallyGood simple enough to run and serious enough to trust.</p>
+        </div>
+        <div class="steps-grid four">
+          <article class="step-card"><span>01</span><h3>Verify</h3><p>Check the need, partner, costs, route, risks and evidence plan before launching.</p></article>
+          <article class="step-card"><span>02</span><h3>Fund</h3><p>Open a focused Drop with a clear target, simple amounts and easy sharing.</p></article>
+          <article class="step-card"><span>03</span><h3>Deliver</h3><p>Funds move through approved controls and a verified partner delivers the essentials.</p></article>
+          <article class="step-card"><span>04</span><h3>Prove</h3><p>Publish a close-out report showing spend, items, evidence, issues and lessons.</p></article>
+        </div>
+        <p class="center-note"><a class="text-link" href="how-it-works.html">Read the full process →</a></p>
+      </div>
+    </section>
+
+    <section class="section section-warm">
+      <div class="shell cta-band">
+        <div>
+          <p class="eyebrow">Be part of the first Drops</p>
+          <h2>Rally with us from day one.</h2>
+          <p class="lead-small">We are not accepting donations yet. You can start a team, sponsor a future Drop or ask to be told when we launch.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="button button-primary" href="get-involved.html">Get involved</a>
+          <a class="button button-light" href="contact.html?topic=updates">Get launch updates</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="shell faq-grid">
+        <div>
+          <p class="eyebrow">FAQ</p>
+          <h2>Clear answers build trust.</h2>
+        </div>
+        <div class="faq-list">
+          <details open><summary>Is RallyGood a registered charity?</summary><p>Not yet. Charity registration is pending. We will say so clearly until registration is complete and we have a charity number to show.</p></details>
+          <details><summary>Can I donate now?</summary><p>No. We are not accepting donations until registration, banking and fundraising controls are in place. Get in touch and we will let you know when the first Drop opens.</p></details>
+          <details><summary>What is a Drop?</summary><p>A Drop is a small urgent appeal for practical essentials, with a target, a delivery route, a cost breakdown and a close-out report.</p></details>
+          <details><summary>How will money be split?</summary><p>The planned default is 98% to the Drop fund and 2% to the operating and transparency costs that make verification and reporting possible, shown clearly before anyone gives.</p></details>
+          <details><summary>Will you ship goods from the UK?</summary><p>Not by default. The plan is to raise funds here and buy locally or regionally through verified partners, which is usually faster, cheaper and better for local markets.</p></details>
+          <details><summary>Can businesses sponsor a Drop?</summary><p>Yes. See <a class="text-link" href="get-involved.html#sponsors">Get involved</a> or email <a class="text-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p></details>
+        </div>
+      </div>
+    </section>

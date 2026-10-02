@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FFF4CC"/>
+  <circle cx="102" cy="94" r="165" fill="#FF65B6" opacity="0.7"/>
+  <circle cx="1095" cy="106" r="175" fill="#39D8FF" opacity="0.8"/>
+  <circle cx="1040" cy="585" r="200" fill="#FF9B23" opacity="0.75"/>
+  <rect x="88" y="92" width="1024" height="446" rx="48" fill="#15101F"/>
+  <rect x="133" y="137" width="96" height="96" rx="26" fill="#6F3CFF"/>
+  <path d="M157 190C157 174.536 169.536 162 185 162H199V174H185C176.163 174 169 181.163 169 190C169 198.837 176.163 206 185 206C190.645 206 195.607 203.072 198.456 198.651L208.372 205.039C203.677 212.328 195.487 217 185 217C169.536 217 157 205.464 157 190Z" fill="#FFE45D"/>
+  <path d="M186 179H207C212.523 179 217 183.477 217 189C217 194.523 212.523 199 207 199H186V179Z" fill="#39D8FF"/>
+  <text x="260" y="202" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="900">RallyGood</text>
+  <text x="134" y="337" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="900">Small appeals.</text>
+  <text x="134" y="426" fill="#FFE45D" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="900">Real essentials.</text>
+  <text x="134" y="500" fill="#39D8FF" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="900">Clear proof.</text>
+</svg>

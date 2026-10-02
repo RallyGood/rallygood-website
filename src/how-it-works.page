@@ -1,0 +1,86 @@
+---
+title: How it works
+description: How RallyGood Drops will work – verify, fund, deliver, prove – including the planned 98/2 split, what happens if a Drop raises too much or too little, and our dignity-first promise.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">How it works</p>
+        <h1>Verify. Fund. Deliver. Prove.</h1>
+        <p class="lead-small">Everything RallyGood does is organised around one repeatable product: the Drop.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="steps-grid four">
+          <article class="step-card"><span>01</span><h3>Verify</h3><p>Before any Drop opens we confirm the need, the local partner, the costs, the delivery route, the risks and how evidence will be collected.</p></article>
+          <article class="step-card"><span>02</span><h3>Fund</h3><p>A Drop is published with a target, a cost breakdown and a named partner. People give, share and fundraise in teams.</p></article>
+          <article class="step-card"><span>03</span><h3>Deliver</h3><p>Funds are paid to the partner under agreed controls. The partner buys locally or regionally where possible and delivers the essentials.</p></article>
+          <article class="step-card"><span>04</span><h3>Prove</h3><p>We publish a close-out report: what was raised, what was spent, what was delivered, what went wrong and what we learned.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="shell split-grid">
+        <div>
+          <p class="eyebrow">What every Drop shows</p>
+          <h2>The same questions, answered every time.</h2>
+          <p class="lead-small">A consistent format keeps the charity lean and accountable, even when each urgent need is different.</p>
+        </div>
+        <div class="template-card" aria-label="Drop page template">
+          <div class="template-row"><span>Need</span><strong>Who needs what, and why now</strong></div>
+          <div class="template-row"><span>Status</span><strong>Verifying / Live / Funded / Delivered / Closed</strong></div>
+          <div class="template-row"><span>Target</span><strong>Amount and cost per item</strong></div>
+          <div class="template-row"><span>Partner</span><strong>Verified local delivery partner</strong></div>
+          <div class="template-row"><span>Proof plan</span><strong>Receipts, safe photos, sign-off, report</strong></div>
+          <div class="template-row"><span>Close-out</span><strong>Published after delivery</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="split">
+      <div class="shell donate-grid">
+        <div class="donation-panel" data-split>
+          <p class="eyebrow">Illustration only</p>
+          <h2>98% to the Drop. 2% to keep it accountable.</h2>
+          <p class="lead-small">Try an amount to see how a gift would be split once donations open. <strong>This is not a donation form and no payment is taken.</strong></p>
+          <div class="amount-grid" role="group" aria-label="Example amounts">
+            <button type="button" data-amount="10">£10</button>
+            <button type="button" data-amount="25" class="active">£25</button>
+            <button type="button" data-amount="50">£50</button>
+            <button type="button" data-amount="100">£100</button>
+          </div>
+          <label for="custom-amount">Example amount (£)</label>
+          <input id="custom-amount" type="number" inputmode="decimal" min="1" step="any" value="25">
+          <div class="split-output" aria-live="polite">
+            <div><span>Drop fund</span><strong id="project-share">£24.50</strong></div>
+            <div><span>Operating support</span><strong id="ops-share">£0.50</strong></div>
+          </div>
+          <p class="small-print">The 2% is intended to cover payment processing, partner verification, safeguarding, reporting, website and governance. Not zero admin – honest admin.</p>
+        </div>
+        <div>
+          <p class="eyebrow">If a target is missed or exceeded</p>
+          <h2>Clear rules, before you give.</h2>
+          <p class="lead-small">Money given to a Drop is for that Drop. We will tell donors in advance what happens if things change:</p>
+          <ul class="plain-list">
+            <li><strong>If we raise more than needed:</strong> surplus is used for the next similar appeal.</li>
+            <li><strong>If we raise less:</strong> the Drop may be partially funded, extended, or funds offered back.</li>
+            <li><strong>If a Drop is cancelled:</strong> donors are told straight away and offered a refund or a choice of another Drop.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="shell split-grid">
+        <div>
+          <p class="eyebrow light">Dignity-first promise</p>
+          <h2>No pity marketing. Just practical help with proof.</h2>
+        </div>
+        <div>
+          <p class="lead-small">We tell the truth about need without exploiting suffering. We will not publish photos or exact locations that could put people at risk, and we ask for consent before sharing images. Read our <a class="text-link light" href="safeguarding.html">safeguarding approach</a>.</p>
+          <p class="lead-small"><strong>What we will not do:</strong> claim to be first responders, ship random goods from the UK, or launch a Drop that cannot be verified, costed and reported.</p>
+        </div>
+      </div>
+    </section>

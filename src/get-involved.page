@@ -1,0 +1,63 @@
+---
+title: Get involved
+description: Start a Rally Team, sponsor a future RallyGood Drop, or join the launch list. RallyGood is not yet accepting donations.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Get involved</p>
+        <h1>Help us get the first Drops right.</h1>
+        <p class="lead-small">RallyGood is not accepting donations yet, but there is plenty you can do now. Everything below starts with an email or a message.</p>
+      </div>
+    </section>
+
+    <section class="section" id="teams">
+      <div class="shell teams-grid">
+        <div>
+          <p class="eyebrow">Rally Teams</p>
+          <h2>Giving works better together.</h2>
+          <p class="lead-small">Families, mosque youth groups, gyms, hiking groups, workplaces and university societies can form a team, fund a Drop together and follow its proof.</p>
+          <p class="lead-small">We will help teams plan once the first Drop opens. Tell us who you are and we will keep you in the loop.</p>
+          <div class="team-actions">
+            <a class="button button-primary" href="mailto:{{EMAIL}}?subject=Start%20a%20Rally%20Team">Start a team</a>
+            <a class="button button-light" href="contact.html?topic=updates">Join the launch list</a>
+          </div>
+        </div>
+        <div class="team-board" aria-label="Example Rally Team ideas">
+          <article><span>Family Team</span><strong>Fund a Hygiene Drop</strong><p>Pool small gifts from relatives.</p></article>
+          <article><span>Gym or hiking Team</span><strong>Move for a cause</strong><p>Turn a challenge into a Drop.</p></article>
+          <article><span>Campus Team</span><strong>Rally your society</strong><p>Share a Drop with your community.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-sponsors" id="sponsors">
+      <div class="shell sponsor-grid">
+        <div>
+          <p class="eyebrow">Business sponsorship</p>
+          <h2>Sponsor urgent essentials. Get clear proof.</h2>
+          <p class="lead-small">Businesses can sponsor a Drop, match public donations up to an agreed cap, or fund the operating support that makes verification and reporting possible. Sponsors receive the same public proof report as everyone else.</p>
+          <div class="sponsor-actions">
+            <a class="button button-primary" href="mailto:{{EMAIL}}?subject=Sponsor%20a%20RallyGood%20Drop">Sponsor a Drop</a>
+            <a class="button button-light" href="mailto:{{EMAIL}}?subject=Match%20a%20RallyGood%20Drop">Match a Drop</a>
+          </div>
+        </div>
+        <div class="sponsor-list">
+          <article class="tier-card"><span>Sponsor a Drop</span><p>Fund all or part of a specific Drop.</p></article>
+          <article class="tier-card featured"><span>Match giving</span><p>Match public donations up to a cap you agree with us.</p></article>
+          <article class="tier-card"><span>Fund the 2%</span><p>Cover operating support so more of every gift reaches the Drop.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell cta-band">
+        <div>
+          <p class="eyebrow">Partners</p>
+          <h2>Are you a local delivery partner?</h2>
+          <p class="lead-small">We work only with verified local organisations. If you deliver essentials to people in urgent need, we would like to hear from you. Every partner goes through due diligence before any Drop is launched.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="button button-primary" href="mailto:{{EMAIL}}?subject=Delivery%20partner%20enquiry">Email us</a>
+        </div>
+      </div>
+    </section>

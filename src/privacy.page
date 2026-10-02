@@ -1,0 +1,41 @@
+---
+title: Privacy notice
+description: How RallyGood handles personal data on this website and when you contact us.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Policies</p>
+        <h1>Privacy notice</h1>
+        <p class="lead-small">What we collect, why, how long we keep it and your rights under UK data protection law.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell narrow prose">
+        <h2>Who we are</h2>
+        <p>RallyGood (charity registration pending) is the data controller for personal data described here. Contact: <a class="text-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+
+        <h2>This website</h2>
+        <p>This website does not use cookies, analytics, advertising trackers or embedded third-party content, and it does not take donations or payments. Our hosting providers may keep standard technical logs (such as IP address and page requested) for security and reliability.</p>
+
+        <h2>When you contact us</h2>
+        <p>If you email us or use the contact form (which opens an email in your own email app), we receive your name, email address and message. We use them only to reply to you and to keep a record of the conversation. Our legal basis is legitimate interests in responding to enquiries, and consent where you ask to receive launch updates, which you can withdraw at any time.</p>
+
+        <h2>Other data we may hold in future</h2>
+        <p>Once we begin fundraising we expect to hold donor details (including for Gift Aid), partner details and, with consent, photographs connected to Drops. We will update this notice before we start collecting that data.</p>
+
+        <h2>How long we keep data</h2>
+        <ul>
+          <li>Email correspondence: up to 2 years.</li>
+          <li>Donor and Gift Aid records (once we hold them): 6 years after the last transaction, as required for Gift Aid audit.</li>
+        </ul>
+
+        <h2>Security and sharing</h2>
+        <p>Personal data is held in access-controlled systems and is available only to authorised trustees. We do not sell personal data and do not share it with third parties without consent, except where the law requires it.</p>
+
+        <h2>Your rights</h2>
+        <p>You can ask to see the data we hold about you, to correct it, to have it deleted (subject to legal retention requirements), and to withdraw consent for communications. Email <a class="text-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>. If you are unhappy with how we handle your data you can complain to the Information Commissioner’s Office at <a class="text-link" href="https://ico.org.uk">ico.org.uk</a>.</p>
+
+        <p class="small-print">Last updated: October 2026.</p>
+      </div>
+    </section>

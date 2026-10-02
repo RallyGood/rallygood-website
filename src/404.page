@@ -1,0 +1,12 @@
+---
+title: Page not found
+description: The page you were looking for could not be found.
+robots: noindex,follow
+---
+    <section class="page-hero">
+      <div class="shell">
+        <p class="eyebrow">404</p>
+        <h1>That page has gone missing.</h1>
+        <p class="lead-small">Try the <a class="text-link" href="/">home page</a>, or <a class="text-link" href="contact.html">get in touch</a>.</p>
+      </div>
+    </section>

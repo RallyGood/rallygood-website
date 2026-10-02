@@ -1,0 +1,38 @@
+---
+title: About
+description: About RallyGood – a rapid essentials charity in development, built on verified partners, specific appeals and published proof.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">About RallyGood</p>
+        <h1>Fast help. Clear proof.</h1>
+        <p class="lead-small">RallyGood is being set up to help people respond quickly to urgent human needs by funding practical essentials through verified partners – and showing exactly what happened.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell prose-grid">
+        <div class="prose">
+          <h2>Our purpose</h2>
+          <p>RallyGood is being established to relieve poverty and urgent practical need for people anywhere in the world, by funding essential goods and services such as shelter, food, clean water, hygiene products and warmth.</p>
+          <p>We do this by raising money for specific appeals, called Drops, and working through verified local partner organisations. For every Drop we aim to publish evidence and a close-out report so supporters can see how their contribution was used.</p>
+          <h2>Where we are</h2>
+          <p>RallyGood is being set up as a charitable incorporated organisation (CIO) with trustees. <strong>Charity registration is pending</strong>, and we are not yet accepting donations. We will not describe ourselves as a registered charity until registration is complete.</p>
+          <h2>What we are – and are not</h2>
+          <p>We are a fundraising and verification layer: we mobilise supporters, check partners and costs, move funds under clear controls and report back. We are not an emergency first-response organisation, and we do not claim to have trained response teams or logistics of our own.</p>
+          <p>By default we raise funds in the UK and buy locally or regionally through partners, rather than collecting and shipping goods.</p>
+        </div>
+        <aside class="prose-aside">
+          <div class="dignity-card">
+            <strong>Our principles</strong>
+            <ul class="check-list">
+              <li>Specific, finite appeals</li>
+              <li>Verified partners only</li>
+              <li>Honest costs, shown upfront</li>
+              <li>Proof for every Drop</li>
+              <li>Dignity and safety first</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>

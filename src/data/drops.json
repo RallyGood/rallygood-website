@@ -1,0 +1,51 @@
+[
+  {
+    "id": "example-warmth",
+    "title": "Warmth Drop",
+    "category": "Warmth",
+    "summary": "Blankets, thermal layers and winter essentials for families facing cold conditions after displacement.",
+    "need": "Families without safe, warm sleeping conditions who need winter essentials.",
+    "exampleTarget": 4000,
+    "unitCost": 40,
+    "unitLabel": "warmth bundle",
+    "items": ["thermal blankets", "warm clothing", "basic bedding", "safe distribution support"],
+    "proofPlan": ["partner verification", "itemised budget", "purchase summary", "delivery evidence", "close-out report"],
+    "featured": true
+  },
+  {
+    "id": "example-hygiene",
+    "title": "Hygiene Drop",
+    "category": "Hygiene",
+    "summary": "Soap, period products, nappies and basic hygiene packs delivered through a verified local partner.",
+    "need": "Urgent hygiene support for families with limited access to essential supplies.",
+    "exampleTarget": 1500,
+    "unitCost": 15,
+    "unitLabel": "hygiene kit",
+    "items": ["soap", "period products", "nappies", "toothpaste", "sanitary basics"],
+    "proofPlan": ["partner check", "item budget", "receipt summary", "safe photos", "close-out note"]
+  },
+  {
+    "id": "example-food",
+    "title": "Food Drop",
+    "category": "Food",
+    "summary": "Emergency food parcels or hot meals bought locally, where buying nearby is faster and more dignified.",
+    "need": "Short-term food support for people affected by hardship, displacement or emergency conditions.",
+    "exampleTarget": 2500,
+    "unitCost": 25,
+    "unitLabel": "food parcel",
+    "items": ["food parcels", "hot meals", "baby food where needed", "distribution support"],
+    "proofPlan": ["local purchase", "supplier summary", "partner sign-off", "distribution note", "close-out report"]
+  },
+  {
+    "id": "example-shelter",
+    "title": "Shelter Drop",
+    "category": "Shelter",
+    "summary": "Tents, tarps, bedding and household basics, only where a safe delivery route has been verified.",
+    "need": "Temporary shelter for households who need immediate protection from exposure.",
+    "exampleTarget": 7500,
+    "unitCost": 75,
+    "unitLabel": "shelter kit",
+    "items": ["tents or tarpaulins", "mattresses", "blankets", "household basics"],
+    "proofPlan": ["risk check", "partner-led delivery", "receipt summary", "safe delivery evidence", "close-out report"]
+  }
+]

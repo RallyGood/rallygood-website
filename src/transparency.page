@@ -1,0 +1,61 @@
+---
+title: Transparency
+description: What RallyGood will publish about every Drop – money in, money out, partners, issues and close-out reports – and the current status of the charity.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Transparency</p>
+        <h1>Accountability, visible from the start.</h1>
+        <p class="lead-small">People trust charities when they can see where money goes. This page is where RallyGood will publish that evidence.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="status-card">
+          <h2>Where we are today</h2>
+          <ul class="plain-list">
+            <li><strong>Charity registration:</strong> pending.</li>
+            <li><strong>Donations:</strong> not being accepted.</li>
+            <li><strong>Drops run:</strong> none. No funds have been raised, held or spent.</li>
+          </ul>
+          <p class="small-print">We will update this page as soon as that changes.</p>
+        </div>
+
+        <div class="section-heading wide top-gap">
+          <p class="eyebrow">What we will publish</p>
+          <h2>For every Drop. No exceptions.</h2>
+        </div>
+        <div class="transparency-grid">
+          <article class="transparency-card"><strong>All Drops archive</strong><p>Every appeal listed: live, delivered, delayed or closed.</p></article>
+          <article class="transparency-card"><strong>Money in, money out</strong><p>Raised, spent and held, with the 98/2 split shown.</p></article>
+          <article class="transparency-card"><strong>Partner payments</strong><p>Public summaries without sensitive bank details.</p></article>
+          <article class="transparency-card"><strong>Issues log</strong><p>Delays, changes and lessons, reported honestly.</p></article>
+        </div>
+
+        <div class="table-wrap" tabindex="0" aria-label="Drops archive">
+          <table>
+            <caption class="sr-only">Archive of RallyGood Drops</caption>
+            <thead><tr><th scope="col">Drop</th><th scope="col">Status</th><th scope="col">Raised</th><th scope="col">Spent</th><th scope="col">Close-out report</th></tr></thead>
+            <tbody>
+              <tr><td colspan="5" class="empty-row">No Drops have been run yet. This table will list every Drop once the first one opens.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="shell split-grid">
+        <div>
+          <p class="eyebrow">Policies and governance</p>
+          <h2>Boring reliability, behind the scenes.</h2>
+          <p class="lead-small">Our governing documents and policies are being finalised as part of charity registration. We will publish the ones that matter to donors here.</p>
+        </div>
+        <div class="policy-links">
+          <a href="safeguarding.html">Safeguarding</a>
+          <a href="privacy.html">Privacy notice</a>
+          <a href="mailto:{{EMAIL}}?subject=Raise%20a%20concern">Raise a concern</a>
+        </div>
+      </div>
+    </section>
