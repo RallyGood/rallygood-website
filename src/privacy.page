@@ -22,7 +22,7 @@ description: How RallyGood handles personal data on this website and when you co
         <p>{{PRIVACY_FORM}} We use them only to reply to you and to keep a record of the conversation. Our legal basis is legitimate interests in responding to enquiries, and consent where you ask to receive launch updates, which you can withdraw at any time.</p>
 
         <h2>Newsletter</h2>
-        <p>If you sign up for updates, we use your email address (and name, if you give it) only to send you news about RallyGood, such as launch updates and Drop close-out reports. We rely on your consent, which you give by ticking the box when you sign up. Every email will include a way to unsubscribe, and you can also withdraw consent at any time by emailing us. We will not sell or share your details for marketing.</p>
+        <p>If you sign up for updates, we use your email address (and name, if you give it) only to send you news about RallyGood, such as launch updates and Drop close-out reports. We rely on your consent, which you give by ticking the box when you sign up. {{PRIVACY_NEWS}} Every email will include a way to unsubscribe, and you can also withdraw consent at any time by emailing us. We will not sell or share your details for marketing.</p>
 
         <h2>Other data we may hold in future</h2>
         <p>Once we begin fundraising we expect to hold donor details (including for Gift Aid), partner details and, with consent, photographs connected to Drops. We will update this notice before we start collecting that data.</p>

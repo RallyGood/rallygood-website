@@ -26,16 +26,25 @@ const tokens = {
     ? 'Any Drops shown on this site are illustrative examples unless marked as live.'
     : 'RallyGood is not yet registered with the Charity Commission and is not accepting donations. Any Drops shown on this site are illustrative examples.',
   YEAR: String(new Date().getFullYear()),
-  CONTACT_ENDPOINT: cfg.contactFormEndpoint || '',
-  NEWSLETTER_ENDPOINT: cfg.newsletterEndpoint || '',
-  CSP_CONNECT: ["'self'", ...[cfg.contactFormEndpoint, cfg.newsletterEndpoint].filter(Boolean).map((u) => new URL(u).origin)].filter((v, i, a) => a.indexOf(v) === i).join(' '),
-  FORM_BUTTON: cfg.contactFormEndpoint ? 'Send message' : 'Open email to send',
-  FORM_STATUS: cfg.contactFormEndpoint
+  CONTACT_ENDPOINT: cfg.web3formsAccessKey ? 'https://api.web3forms.com/submit' : (cfg.contactFormEndpoint || ''),
+  WEBFORMS_KEY: cfg.web3formsAccessKey || '',
+  CSP_CONNECT: ["'self'", ...(cfg.web3formsAccessKey ? ['https://api.web3forms.com'] : []), ...(cfg.contactFormEndpoint ? [new URL(cfg.contactFormEndpoint).origin] : [])].filter((v, i, a) => a.indexOf(v) === i).join(' '),
+  CSP_FRAME: cfg.beehiivEmbedUrl ? new URL(cfg.beehiivEmbedUrl).origin : "'none'",
+  NEWSLETTER: cfg.beehiivEmbedUrl
+    ? fs.readFileSync(path.join(src, 'partials/newsletter-embed.html'), 'utf8').replace('__BEEHIIV__', cfg.beehiivEmbedUrl.replace(/"/g, '&quot;'))
+    : fs.readFileSync(path.join(src, 'partials/newsletter-form.html'), 'utf8'),
+  FORM_BUTTON: (cfg.web3formsAccessKey || cfg.contactFormEndpoint) ? 'Send message' : 'Open email to send',
+  FORM_STATUS: (cfg.web3formsAccessKey || cfg.contactFormEndpoint)
     ? 'We will reply to the email address you give. If sending fails you can email us directly.'
     : 'This form prepares an email in your own email app – nothing is sent until you press send there. If nothing opens, email us directly.',
-  PRIVACY_FORM: cfg.contactFormEndpoint
-    ? 'If you use the contact form, your name, email address and message are sent to us through a third-party form service acting on our behalf. We receive them by email. If you email us directly we receive the same details.'
-    : 'If you email us or use the contact form (which opens an email in your own email app), we receive your name, email address and message.',
+  PRIVACY_FORM: cfg.web3formsAccessKey
+    ? 'If you use the contact form, your name, email address and message are sent to us through Web3Forms, a form service acting on our behalf, which delivers them to us by email. If you email us directly we receive the same details.'
+    : cfg.contactFormEndpoint
+      ? 'If you use the contact form, your name, email address and message are sent to us through a third-party form service acting on our behalf, which delivers them to us by email. If you email us directly we receive the same details.'
+      : 'If you email us or use the contact form (which opens an email in your own email app), we receive your name, email address and message.',
+  PRIVACY_NEWS: cfg.beehiivEmbedUrl
+    ? 'Sign-ups and emails are handled for us by beehiiv, our email newsletter service, which stores your email address and sends our updates on our behalf.'
+    : 'Until our email newsletter service is set up, sign-up requests arrive as an email to us and we add you to our list manually.',
 };
 const fill = (s, extra = {}) =>
   s.replace(/\{\{([A-Z_]+)\}\}/g, (m, k) => (k in extra ? extra[k] : k in tokens ? tokens[k] : m));

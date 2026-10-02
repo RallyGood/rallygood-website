@@ -127,8 +127,9 @@
         if (form.elements._gotcha && form.elements._gotcha.value) return;
         var btn = form.querySelector('button[type=submit]'); btn.disabled = true; statusEl.textContent = 'Sending…';
         fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ name: name, email: email, topic: topics[form.elements.topic.value], message: msg, _subject: subject }) })
-          .then(function (r) { if (!r.ok) throw new Error(r.status); form.reset(); statusEl.textContent = 'Thank you – your message has been sent. We will reply to the email address you gave.'; })
+          body: JSON.stringify({ access_key: '{{WEBFORMS_KEY}}', name: name, email: email, topic: topics[form.elements.topic.value], message: msg, subject: subject, _subject: subject, botcheck: '' }) })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || j.success === false) throw new Error(r.status); }); })
+          .then(function () { form.reset(); statusEl.textContent = 'Thank you – your message has been sent. We will reply to the email address you gave.'; })
           .catch(function () { statusEl.innerHTML = 'Sorry, that did not send. Please email <a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a> directly.'; })
           .then(function () { btn.disabled = false; });
         return;
@@ -148,17 +149,8 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.textContent = 'Please enter a valid email address.'; nl.elements.email.focus(); return; }
       if (!nl.elements.consent.checked) { st.textContent = 'Please tick the box to agree to receive updates.'; nl.elements.consent.focus(); return; }
       if (nl.elements._gotcha && nl.elements._gotcha.value) return;
-      var ep = nl.dataset.endpoint;
-      if (!ep) {
-        window.location.href = 'mailto:info@rallygood.org.uk?subject=' + encodeURIComponent('Subscribe me to RallyGood updates') + '&body=' + encodeURIComponent('Please add ' + email + ' to the RallyGood updates list. I agree to receive updates and understand I can unsubscribe at any time.');
-        st.textContent = 'Your email app should open with a subscribe request. Press send to finish.';
-        return;
-      }
-      st.textContent = 'Subscribing…';
-      fetch(ep, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email: email, consent: 'Agreed to receive RallyGood updates', source: location.pathname, _subject: 'New RallyGood newsletter sign-up' }) })
-        .then(function (r) { if (!r.ok) throw new Error(r.status); nl.reset(); st.textContent = 'Thank you – you are on the list.'; })
-        .catch(function () { st.textContent = 'Sorry, that did not work. Please email info@rallygood.org.uk to subscribe.'; });
+      window.location.href = 'mailto:info@rallygood.org.uk?subject=' + encodeURIComponent('Subscribe me to RallyGood updates') + '&body=' + encodeURIComponent('Please add ' + email + ' to the RallyGood updates list. I agree to receive updates and understand I can unsubscribe at any time.');
+      st.textContent = 'Your email app should open with a subscribe request. Press send to finish.';
     });
   }
 })();

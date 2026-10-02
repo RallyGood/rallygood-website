@@ -23,7 +23,8 @@
 ## Nature & wellbeing page (added)
 - `/nature-wellbeing.html` is written from the constitution and charity-setup notes only. Not yet confirmed: session locations, dates, group sizes, facilitators, partners, risk assessments and facilitator checks. Trustees should review the forest-bathing background and the "research suggests" wording before launch.
 
-## Contact form and newsletter (added)
-- Both forms use optional endpoints in `config/site.config.json` (`contactFormEndpoint`, `newsletterEndpoint`; Formspree-compatible JSON POST, honeypot, consent checkbox). While empty they fall back to mailto, so nothing breaks.
-- To activate: a trustee creates the form-service account(s), pastes the endpoint URLs and pushes. The CSP updates automatically. Then name the provider in the privacy notice and agree its data-processing terms.
-- A form inbox is not a full newsletter tool. For real sending (unsubscribe links, double opt-in) use a mailing platform and put its endpoint or embed here.
+## Contact form (Web3Forms) and newsletter (beehiiv) – decided, needs your keys
+- Contact form: create a Web3Forms access key for info@rallygood.org.uk (web3forms.com, key is emailed), paste it into `web3formsAccessKey` in `config/site.config.json`, push.
+- Newsletter: in beehiiv create a publication, make a subscribe form, copy its embed (iframe) URL into `beehiivEmbedUrl`, push. Turn on double opt-in and add the charity name and postal contact in beehiiv's footer settings.
+- Until both are set the site falls back to mailto and the privacy notice says so; once set it names Web3Forms and beehiiv automatically.
+- Then: accept each provider's data-processing terms, and have trustees review the privacy notice.

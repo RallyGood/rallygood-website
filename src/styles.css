@@ -428,3 +428,5 @@ details p { color: var(--muted); margin: .7rem 0 0; }
 .newsletter-consent a { color: var(--yellow); text-decoration: underline; }
 .newsletter-status { grid-column: 1 / -1; margin: 0; min-height: 1.2em; font-weight: 800; color: var(--yellow); }
 @media (max-width: 760px) { .newsletter-form { grid-template-columns: 1fr; } .newsletter-fields { flex-direction: column; } }
+.newsletter-embed { grid-column: 1 / -1; } .newsletter-embed iframe { border: 0; background: transparent; min-height: 120px; }
+.newsletter-consent-note { grid-column: 1 / -1; margin: 0; font-size: .85rem; color: rgba(255,255,255,.8); } .newsletter-consent-note a { color: var(--yellow); text-decoration: underline; }
