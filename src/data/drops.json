@@ -92,28 +92,5 @@
       "safe delivery evidence",
       "close-out report"
     ]
-  },
-  {
-    "id": "example-nature",
-    "title": "Nature & Wellbeing Drop",
-    "category": "Wellbeing",
-    "summary": "Free, local nature-based wellbeing sessions, such as forest bathing, for people facing isolation, hardship or barriers to taking part.",
-    "need": "People experiencing disadvantage or isolation who would benefit from free, supported access to nature and community.",
-    "exampleTarget": 1500,
-    "unitCost": 25,
-    "unitLabel": "session place",
-    "items": [
-      "trained facilitator time",
-      "venue and access",
-      "accessibility support",
-      "session materials"
-    ],
-    "proofPlan": [
-      "delivery partner or facilitator check",
-      "itemised budget",
-      "attendance summary",
-      "participant feedback",
-      "close-out report"
-    ]
   }
 ]

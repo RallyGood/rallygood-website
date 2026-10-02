@@ -40,7 +40,7 @@ description: RallyGood is a charity in development that will rally people around
 
     <section class="proof-strip" aria-label="RallyGood model highlights">
       <div class="shell proof-strip-grid">
-        <div><strong>4</strong><span>aid lanes + nature &amp; wellbeing</span></div>
+        <div><strong>4</strong><span>aid lanes</span></div>
         <div><strong>1</strong><span>verified partner per Drop</span></div>
         <div><strong>85/15</strong><span>planned transparent split</span></div>
         <div><strong>Every</strong><span>Drop closes with proof</span></div>
@@ -67,11 +67,11 @@ description: RallyGood is a charity in development that will rally people around
     <section class="section section-soft" id="nature">
       <div class="shell prose-grid">
         <div class="prose">
-          <p class="eyebrow">Local &amp; nature-based</p>
-          <h2>Relief for the body, and for the community around you.</h2>
-          <p>Alongside practical essentials, RallyGood is being set up to support wellbeing and social inclusion through access to nature, including forest bathing, for people experiencing disadvantage, isolation or barriers to taking part.</p>
-          <p>Some sessions will be run directly by RallyGood with trained facilitators; others will be funded through partner organisations. Sessions are intended to be free to attend, with an optional suggested donation and nobody excluded if they cannot give. Nature &amp; Wellbeing Drops will follow the same rules as every other Drop: a target, a cost breakdown, evidence and a close-out report.</p>
-          <p><a class="text-link" href="drops.html">See the example Nature &amp; Wellbeing Drop →</a></p>
+          <p class="eyebrow">Our local work</p>
+          <h2>Nature &amp; wellbeing, close to home.</h2>
+          <p>Drops are mainly for international disaster and hardship relief. Locally, RallyGood is being set up to run and fund free, facilitated time in nature, including forest bathing, for people facing isolation, hardship or barriers to taking part.</p>
+          <p>Sessions are intended to be free, with an optional suggested donation and nobody excluded if they cannot give.</p>
+          <p><a class="text-link" href="nature-wellbeing.html">Explore nature &amp; wellbeing →</a></p>
         </div>
       </div>
     </section>

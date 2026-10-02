@@ -1,6 +1,6 @@
 ---
 title: Planned Drops
-description: Illustrative examples of the Drops RallyGood plans to run across food, hygiene, warmth, shelter and nature-based wellbeing. No Drops are open and no donations are being taken.
+description: Illustrative examples of the Drops RallyGood plans to run across food, hygiene, warmth and shelter. No Drops are open and no donations are being taken.
 ---
     <section class="page-hero section-soft">
       <div class="shell">
@@ -18,7 +18,6 @@ description: Illustrative examples of the Drops RallyGood plans to run across fo
           <button type="button" class="filter-button" data-filter="Hygiene" aria-pressed="false">Hygiene</button>
           <button type="button" class="filter-button" data-filter="Warmth" aria-pressed="false">Warmth</button>
           <button type="button" class="filter-button" data-filter="Shelter" aria-pressed="false">Shelter</button>
-          <button type="button" class="filter-button" data-filter="Wellbeing" aria-pressed="false">Nature &amp; wellbeing</button>
         </div>
         <div class="drop-grid" id="drop-grid" aria-live="polite">
           <noscript><p class="notice-card">Enable JavaScript to browse the example Drops, or <a class="text-link" href="contact.html">contact us</a>.</p></noscript>
