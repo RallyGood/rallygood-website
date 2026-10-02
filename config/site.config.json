@@ -7,6 +7,9 @@
   "charityNumber": "1234567890",
   "_notes": {
     "charityNumber": "TEMPORARY PLACEHOLDER. Not valid. Never published while registrationStatus is 'pending' (the build fails if it leaks).",
-    "howToGoLive": "When the Charity Commission issues the real number: set charityNumber to it and registrationStatus to 'registered', then push to main."
-  }
+    "howToGoLive": "When the Charity Commission issues the real number: set charityNumber to it and registrationStatus to 'registered', then push to main.",
+    "formEndpoints": "Optional. Paste a Formspree-compatible form URL (e.g. https://formspree.io/f/xxxx) for each. Empty = the site falls back to opening the visitor's email app (mailto). The endpoint's origin is added to the CSP automatically."
+  },
+  "contactFormEndpoint": "",
+  "newsletterEndpoint": ""
 }

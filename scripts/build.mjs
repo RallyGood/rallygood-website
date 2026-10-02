@@ -26,6 +26,16 @@ const tokens = {
     ? 'Any Drops shown on this site are illustrative examples unless marked as live.'
     : 'RallyGood is not yet registered with the Charity Commission and is not accepting donations. Any Drops shown on this site are illustrative examples.',
   YEAR: String(new Date().getFullYear()),
+  CONTACT_ENDPOINT: cfg.contactFormEndpoint || '',
+  NEWSLETTER_ENDPOINT: cfg.newsletterEndpoint || '',
+  CSP_CONNECT: ["'self'", ...[cfg.contactFormEndpoint, cfg.newsletterEndpoint].filter(Boolean).map((u) => new URL(u).origin)].filter((v, i, a) => a.indexOf(v) === i).join(' '),
+  FORM_BUTTON: cfg.contactFormEndpoint ? 'Send message' : 'Open email to send',
+  FORM_STATUS: cfg.contactFormEndpoint
+    ? 'We will reply to the email address you give. If sending fails you can email us directly.'
+    : 'This form prepares an email in your own email app – nothing is sent until you press send there. If nothing opens, email us directly.',
+  PRIVACY_FORM: cfg.contactFormEndpoint
+    ? 'If you use the contact form, your name, email address and message are sent to us through a third-party form service acting on our behalf. We receive them by email. If you email us directly we receive the same details.'
+    : 'If you email us or use the contact form (which opens an email in your own email app), we receive your name, email address and message.',
 };
 const fill = (s, extra = {}) =>
   s.replace(/\{\{([A-Z_]+)\}\}/g, (m, k) => (k in extra ? extra[k] : k in tokens ? tokens[k] : m));
