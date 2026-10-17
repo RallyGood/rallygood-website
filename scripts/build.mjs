@@ -52,9 +52,9 @@ const tokens = {
     ? 'We will reply to the email address you give. If sending fails you can email us directly.'
     : 'This form prepares an email in your own email app – nothing is sent until you press send there. If nothing opens, email us directly.',
   PRIVACY_FORM: cfg.web3formsAccessKey
-    ? 'If you use the contact form, your name, email address and message are sent to us through Web3Forms, a form service acting on our behalf, which delivers them to us by email. If you email us directly we receive the same details.'
+    ? 'If you use the contact form, your name, email address, topic and message are sent to us through Web3Forms, a form service acting on our behalf, which delivers them to us by email. The email we receive also includes the IP address you sent it from. If you email us directly we receive the same details.'
     : cfg.contactFormEndpoint
-      ? 'If you use the contact form, your name, email address and message are sent to us through a third-party form service acting on our behalf, which delivers them to us by email. If you email us directly we receive the same details.'
+      ? 'If you use the contact form, your name, email address, topic and message are sent to us through a third-party form service acting on our behalf, which delivers them to us by email. The email we receive may also include the IP address you sent it from. If you email us directly we receive the same details.'
       : 'If you email us or use the contact form (which opens an email in your own email app), we receive your name, email address and message.',
   PRIVACY_NEWS: cfg.beehiivEmbedUrl
     ? 'Sign-ups and emails are handled for us by beehiiv, our email newsletter service, which stores your email address and sends our updates on our behalf.'
