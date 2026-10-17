@@ -66,3 +66,6 @@ Created by Raf; measurement ID received 2026-10-17 and wired into the branch. I 
 - Social metadata build check: all 19 built pages contain og:image width/height/alt and Twitter title/description/image tags. `scripts/check.py` was not re-run after this change.
 - Consent matrix (`scripts/consent-test.py`, Google hosts stubbed): 30/30 passed. `scripts/check.py` re-run with the banner present: same three items as before, nothing new.
 - Not run: Rich Results Test, Lighthouse/CWV, cookie/network inspection of the live site, accessibility audit.
+
+## Templates and checks (2026-10-18)
+Drafts in `docs/templates/` (governance page, complaints policy, Drop page, close-out report, donation wording, partner due-diligence checklist, form/newsletter test plan) are unpublished and need trustee input. `scripts/ci-check.mjs` and `.github/workflows/check.yml` run on pull requests only (build, links, metadata, sitemap, pre-launch disclosures). Public split confirmed by Raf as 85/15.
