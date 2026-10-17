@@ -61,6 +61,15 @@ tokens.PRIVACY_SITE = [
   'Our hosting providers may keep standard technical logs (such as IP address and page requested) for security and reliability.',
 ].filter(Boolean).join(' ');
 
+function imageSize(file) {
+  const b = fs.readFileSync(file);
+  if (b.readUInt32BE(0) === 0x89504e47) return [b.readUInt32BE(16), b.readUInt32BE(20)];
+  let i = 2;
+  while (i < b.length) { if (b[i] !== 0xff) { i++; continue; } const m = b[i + 1]; const len = b.readUInt16BE(i + 2);
+    if (m >= 0xc0 && m <= 0xcf && m !== 0xc4 && m !== 0xc8 && m !== 0xcc) return [b.readUInt16BE(i + 7), b.readUInt16BE(i + 5)]; i += 2 + len; }
+  throw new Error('Unknown image format: ' + file);
+}
+const [CARD_W, CARD_H] = imageSize(path.join(src, 'assets/social-card.png'));
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const gbp0 = (n) => '\u00a3' + Number(n).toLocaleString('en-GB', { maximumFractionDigits: 0 });
 // Static copy of the example Drop cards (same markup as src/script.js) so the content exists without JavaScript.
@@ -134,6 +143,10 @@ function writePage(out, meta, content, navPath = out) {
     HEADER: hdr,
     FOOTER: footer,
     CONTENT: content,
+    OG_IMAGE: `${cfg.siteUrl}/${meta.image || 'assets/social-card.png'}`,
+    OG_IMAGE_W: String(meta.image ? imageSize(path.join(src, meta.image))[0] : CARD_W),
+    OG_IMAGE_H: String(meta.image ? imageSize(path.join(src, meta.image))[1] : CARD_H),
+    OG_IMAGE_ALT: esc(meta.imageAlt || 'RallyGood: Small appeals. Real essentials. Clear proof.'),
     JSONLD: jsonLd(out, meta.title, out === 'index.html' || out === '404.html' ? [['Home', '']] : out.startsWith('shop/') ? [['Home', ''], ['Shop', 'shop.html'], [meta.title, out]] : [['Home', ''], [meta.title, out]]),
   });
   fs.mkdirSync(path.dirname(path.join(dist, out)), { recursive: true });

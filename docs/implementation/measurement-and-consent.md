@@ -9,7 +9,12 @@ Where do supporters discover RallyGood? Which pages and campaigns bring people w
 - Observed: no Google tag; CSP `script-src 'self'` (inline scripts blocked, `www.googletagmanager.com` not allowed); privacy notice describes no site-side analytics.
 - Observed: only genuine supporter actions today are the contact form (Web3Forms, cross-origin fetch) and the newsletter (beehiiv iframe, cross-origin, so success is not visible to page scripts without beehiiv support).
 
-## Consent approach (recommendation, needs trustee decision)
+## Decisions recorded (Raf, 2026-10-17)
+1. Consent comes before any optional measurement.
+2. Donations use a custom `donation_received` event; `purchase` is reserved for genuine merchandise.
+3. GA4 property to be created by the owner (see `plan-and-status.md`); no ID exists yet.
+
+## Consent approach
 Source: ICO, [What are the exceptions?](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/what-are-the-exceptions/) (page dated 29 April 2026, checked 2026-10-17).
 
 - ICO says the statistical-purposes exception applies only if the technology is used solely to measure service use for improvement, outputs aggregate non-identifying statistics, makes no decisions about individuals, gives clear information and a simple free way to object, and shares data only with a processor that does not combine it with other data.
