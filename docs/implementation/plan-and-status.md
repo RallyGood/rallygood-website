@@ -4,7 +4,7 @@ Resume point for another session. Audit detail is in `audit.md`.
 
 ## Constraints for any session
 - Pushing or merging to `main` deploys to production (GitHub Pages). Do not push without explicit approval.
-- This session cloned read-only. Changes exist only in the local clone until the owner approves pushing and push access is attached.
+- Push access to the repo was attached on 2026-10-17 so work could go to the branch `claude/implementation-checkpoint`. Nothing has been pushed to `main`.
 - Keep "Charity registration pending", "not accepting donations", "illustrative" and "Planned" disclosures unchanged.
 - Never publish the placeholder charity number. Do not add placeholder GA/GTM IDs.
 
@@ -17,11 +17,11 @@ Resume point for another session. Audit detail is in `audit.md`.
 | P1 | JSON-LD (Organization, WebSite, BreadcrumbList), no registration number or legal name while pending | `layout.html`, `build.mjs` (`jsonLd`) | Implemented on branch; JSON parses on all 19 built pages; not run through Google's Rich Results Test | Needs live deploy to test URLs | Claude | Validate after deploy |
 | P1 | Example Drop cards rendered statically at build time (JS filter kept) | `drops.page`, `build.mjs` (`DROP_CARDS`) | Implemented on branch; built `drops.html` has 4 cards; card/filter checks passed locally | None | Claude | Confirm after deploy |
 | P1 | Remove inaccurate sitemap `lastmod` (CI checkouts are shallow, so git/mtime dates would be equally wrong) | `build.mjs` | Implemented on branch; 0 `lastmod` in built sitemap | None | Claude | Add accurate dates only if a real content-date source is introduced |
-| P1 | Dormant measurement scaffolding: event spec, consent design, disabled loader | docs, `config` | Not started | No GA4 property known | Claude / Raf | Write measurement plan and event spec; no live tag |
+| P1 | Measurement plan, consent design, event spec | `measurement-and-consent.md`, `event-specification.csv` | Specified on branch only; **no code, no tag** | Trustee decision on consent approach; no GA4 property | Raf / trustees | Decide approach; owner creates GA4 property |
 | P2 | Per-page OG metadata and image dimensions | `layout.html`, `build.mjs` | Not started | None | Claude | Implement locally |
-| P2 | Google for Nonprofits UK eligibility and Ad Grants readiness against current official guidance | docs | Awaiting access/verification | Registration pending; needs official source check | Claude then Raf | Research official pages, record source and date |
+| P2 | Google for Nonprofits UK eligibility and Ad Grants readiness | `google-for-nonprofits.md` | Assessed from official pages 2026-10-17; **awaiting eligibility** | Charity registration pending; Ad Grants programme eligibility page not retrievable | Raf | Complete registration; confirm no existing GfN account |
 | P2 | Reporting specification (Looker Studio) | docs | Not started | No GA4/GSC access | Claude | Spec only; not a connected dashboard |
-| P3 | Merchant Center | `merchant-eligibility.md` | Not applicable | No live merchandise | n/a | Record prerequisites only |
+| P3 | Merchant Center | `merchant-eligibility.md` | Not applicable (decision recorded) | No live merchandise | n/a | Revisit at shop launch |
 
 ## Minimum access and approval requests
 
@@ -38,7 +38,7 @@ No IDs have been requested or assumed.
 ## Safe work proceeding now (local only, nothing pushed or deployed)
 1. Browser inspection of live cookies and third-party requests.
 2. Local changes for the P1 items marked "None" blocker, followed by a local build and the checks I can actually run.
-3. Official-source research for Google for Nonprofits, recorded with URL and date.
+3. (Done) Official-source research for Google for Nonprofits, recorded with URL and date.
 
 ## Test evidence so far (local, synthetic; no live-site deploy)
 - `node scripts/build.mjs`: built 12 pages, placeholder-number gate passed.
