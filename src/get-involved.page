@@ -16,7 +16,7 @@ description: Start a Rally Team, sponsor a future RallyGood Drop, or join the la
           <p class="eyebrow">Rally Teams</p>
           <h2>Giving works better together.</h2>
           <p class="lead-small">Families, mosque youth groups, gyms, hiking groups, workplaces and university societies can form a team, fund a Drop together and follow its proof.</p>
-          <p class="lead-small">We will help teams plan once the first Drop opens. Tell us who you are and we will keep you in the loop.</p>
+          <p class="lead-small">We will help teams plan once the first Drop opens. Tell us who you are and we will keep you in the loop. Read <a class="text-link" href="how-it-works.html">how a Drop works</a> and see the <a class="text-link" href="drops.html">planned Drops</a>.</p>
           <div class="team-actions">
             <a class="button button-primary" href="mailto:{{EMAIL}}?subject=Start%20a%20Rally%20Team">Start a team</a>
             <a class="button button-light" href="contact.html?topic=updates">Join the launch list</a>
