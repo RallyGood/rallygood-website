@@ -9,6 +9,8 @@ const src = path.join(root, 'src');
 const dist = path.join(root, 'dist');
 const cfg = JSON.parse(fs.readFileSync(path.join(root, 'config/site.config.json'), 'utf8'));
 const registered = cfg.registrationStatus === 'registered';
+const ga4 = cfg.ga4MeasurementId || '';
+if (ga4 && !/^G-[A-Z0-9]{4,}$/.test(ga4)) throw new Error('ga4MeasurementId must look like G-XXXXXXXXXX');
 const shopMod = loadShop(root, cfg);
 
 const regLine = registered
@@ -36,7 +38,11 @@ const tokens = {
   YEAR: String(new Date().getFullYear()),
   CONTACT_ENDPOINT: cfg.web3formsAccessKey ? 'https://api.web3forms.com/submit' : (cfg.contactFormEndpoint || ''),
   WEBFORMS_KEY: cfg.web3formsAccessKey || '',
-  CSP_CONNECT: ["'self'", ...(cfg.web3formsAccessKey ? ['https://api.web3forms.com'] : []), ...(cfg.contactFormEndpoint ? [new URL(cfg.contactFormEndpoint).origin] : [])].filter((v, i, a) => a.indexOf(v) === i).join(' '),
+  CSP_SCRIPT: ["'self'", ...(ga4 ? ['https://www.googletagmanager.com'] : [])].join(' '),
+  CSP_IMG: ["'self'", 'data:', ...(ga4 ? ['https://www.googletagmanager.com', 'https://*.google-analytics.com'] : [])].join(' '),
+  CONSENT_SCRIPT: ga4 ? `<script src="/consent.js" defer data-ga4-id="${ga4}"></script>` : '',
+  COOKIE_LINK: ga4 ? '<button type="button" class="link-button" data-consent-open>Cookie preferences</button>' : '',
+  CSP_CONNECT: ["'self'", ...(ga4 ? ['https://www.googletagmanager.com', 'https://*.google-analytics.com', 'https://*.google.com'] : []), ...(cfg.web3formsAccessKey ? ['https://api.web3forms.com'] : []), ...(cfg.contactFormEndpoint ? [new URL(cfg.contactFormEndpoint).origin] : [])].filter((v, i, a) => a.indexOf(v) === i).join(' '),
   CSP_FRAME: cfg.beehiivEmbedUrl ? new URL(cfg.beehiivEmbedUrl).origin : "'none'",
   NEWSLETTER: cfg.beehiivEmbedUrl
     ? fs.readFileSync(path.join(src, 'partials/newsletter-embed.html'), 'utf8').replace('__BEEHIIV__', cfg.beehiivEmbedUrl.replace(/"/g, '&quot;'))
@@ -55,7 +61,9 @@ const tokens = {
     : 'Until our email newsletter service is set up, sign-up requests arrive as an email to us and we add you to our list manually.',
 };
 tokens.PRIVACY_SITE = [
-  'We have not added analytics, advertising or tracking tools of our own to this website, and it does not take donations or payments.',
+  ga4
+    ? 'We use Google Analytics 4, provided by Google, to count visits and see which pages are used, but only if you accept analytics in the cookie banner. If you reject, or have not chosen, the Google Analytics code is not loaded. If you accept, it sets cookies (named _ga and _ga_ followed by an identifier) and sends Google your page address, device and browser details and an approximate location worked out from your IP address. We have switched off Google signals and advertising personalisation. You can change or withdraw your choice at any time with “Cookie preferences” in the footer; your choice is stored in your browser for up to 180 days. See Google’s own privacy information for how Google handles this data. We do not use advertising tools, and this website does not take donations or payments.'
+    : 'We have not added analytics, advertising or tracking tools of our own to this website, and it does not take donations or payments.',
   cfg.beehiivEmbedUrl ? 'The newsletter sign-up form in the footer is provided by beehiiv and loads from beehiiv\u2019s servers, so beehiiv receives technical details such as your IP address and browser when a page with the form loads. It may also use cookies or similar technologies, which are described in beehiiv\u2019s own privacy information.' : '',
   cfg.web3formsAccessKey ? 'If you use the contact form, what you enter is sent from your browser to Web3Forms.' : '',
   'Our hosting providers may keep standard technical logs (such as IP address and page requested) for security and reliability.',

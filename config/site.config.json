@@ -12,9 +12,11 @@
     "charityNumber": "TEMPORARY PLACEHOLDER. Not valid. Never published while registrationStatus is 'pending' (the build fails if it leaks).",
     "howToGoLive": "When the Charity Commission issues the real number: set charityNumber to it and registrationStatus to 'registered', then push to main.",
     "shopGoLive": "Shop stays in preview (no purchases) until shopStatus is set to live. The build refuses live unless registrationStatus is registered, every product in config/shop.json is confirmed (details and images) and has an https checkoutUrl.",
-    "formEndpoints": "Contact form: paste the Web3Forms access key (public by design) into web3formsAccessKey. Newsletter: paste the beehiiv subscribe-form embed URL (the iframe src) into beehiivEmbedUrl. While empty, both fall back to mailto. contactFormEndpoint is an optional generic override."
+    "formEndpoints": "Contact form: paste the Web3Forms access key (public by design) into web3formsAccessKey. Newsletter: paste the beehiiv subscribe-form embed URL (the iframe src) into beehiivEmbedUrl. While empty, both fall back to mailto. contactFormEndpoint is an optional generic override.",
+    "analytics": "Google Analytics 4 measurement ID (public by design). Loads only after the visitor accepts analytics in the banner. Leave empty to disable the tag, banner and preferences link entirely."
   },
   "contactFormEndpoint": "",
   "web3formsAccessKey": "12e1bd91-716d-42b8-b5a4-0ed322df7e20",
-  "beehiivEmbedUrl": "https://subscribe-forms.beehiiv.com/e890fe43-d24b-4a8f-832f-c08eea2c59d3"
+  "beehiivEmbedUrl": "https://subscribe-forms.beehiiv.com/e890fe43-d24b-4a8f-832f-c08eea2c59d3",
+  "ga4MeasurementId": "G-WQH6PTFD4X"
 }
