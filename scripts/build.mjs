@@ -24,6 +24,12 @@ const tokens = {
   SITE_URL: cfg.siteUrl,
   REG_LINE: regLine,
   REG_BANNER: banner,
+  LEGAL_LINE: registered
+    ? `Registered charity in England and Wales, no. ${cfg.charityNumber}. RallyGood is a charitable incorporated organisation (CIO).`
+    : 'Charity registration pending. RallyGood is being set up as a charitable incorporated organisation (CIO) in England.',
+  CREDIT: cfg.designerUrl
+    ? `<a href="${cfg.designerUrl}" rel="noopener">${cfg.designerName}</a>`
+    : cfg.designerName,
   FOOTNOTE: registered
     ? 'Any Drops shown on this site are illustrative examples unless marked as live.'
     : 'RallyGood is not yet registered with the Charity Commission and is not accepting donations. Any Drops shown on this site are illustrative examples.',

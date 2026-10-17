@@ -499,3 +499,9 @@ details p { color: var(--muted); margin: .7rem 0 0; }
 @media (max-width: 900px) {
   .product-grid, .product-detail-grid { grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* ---------- Footer legal row ---------- */
+.footer-legal { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin-bottom: .6rem; font-weight: 850; font-size: .92rem; }
+.site-footer .legal-line { font-size: .85rem; }
+.site-footer .credit { font-size: .85rem; }
+.site-footer .credit a { font-weight: 850; }

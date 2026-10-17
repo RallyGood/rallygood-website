@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 
 base = sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8099'
 out = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else '/tmp/claude-0/shots'); out.mkdir(exist_ok=True, parents=True)
-pages = ['/', '/how-it-works.html', '/drops.html', '/nature-wellbeing.html', '/shop.html', '/shop/core-tee.html', '/shop/lebanon-drop-tee.html', '/shop/palestine-drop-tee.html', '/shop/tote.html', '/shop/pin.html', '/shop/stickers.html', '/transparency.html', '/get-involved.html', '/about.html', '/contact.html', '/privacy.html', '/safeguarding.html', '/nope.html']
+pages = ['/', '/how-it-works.html', '/drops.html', '/nature-wellbeing.html', '/shop.html', '/shop/core-tee.html', '/shop/lebanon-drop-tee.html', '/shop/palestine-drop-tee.html', '/shop/tote.html', '/shop/pin.html', '/shop/stickers.html', '/transparency.html', '/get-involved.html', '/about.html', '/contact.html', '/privacy.html', '/safeguarding.html', '/terms.html', '/nope.html']
 problems = []
 checked = {}
 
