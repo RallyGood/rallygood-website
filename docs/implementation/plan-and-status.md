@@ -5,6 +5,14 @@ Resume point for another session. Audit detail is in `audit.md`.
 ## Update, checkpoint 2
 PR #2 was merged to `main` by Raf and the Pages deploy run succeeded; the live site was inspected afterwards (home page JSON-LD, og:image dimensions, consent banner and `region1.google-analytics.com` requests after accepting). Rows below that say "on branch" or "not deployed" describe the state at checkpoint 1; read them with this update. Still unverified live: first-visit consent in a private window, GA4 receiving and processing data (check Realtime), beehiiv iframe cookies, live Web3Forms submission, Rich Results Test, Lighthouse/field data. The trustee review of the now-live privacy wording is outstanding.
 
+## Owner confirmations, 2026-10-18 (reported by Raf in chat; not independently verified by me)
+- First-visit consent behaviour checked by Raf and approved.
+- GA4 admin settings applied as per the checklist in `measurement-and-consent.md`.
+- Trustees reviewed and approved the live privacy wording.
+- GA4 shows data: one visit logged (so GA4 receipt is confirmed; volume is too small to assess anything).
+- Search Console: not yet configured (steps in `search-console-setup.md`).
+- Open: mark `contact_form_submit` as a key event once it appears; beehiiv cookies; live Web3Forms test; Rich Results Test; PageSpeed.
+
 ## Constraints for any session
 - Pushing or merging to `main` deploys to production (GitHub Pages). Do not push without explicit approval.
 - Push access to the repo was attached on 2026-10-17 so work could go to the branch `claude/implementation-checkpoint`. Nothing has been pushed to `main`.
