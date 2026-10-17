@@ -54,6 +54,37 @@ const tokens = {
     ? 'Sign-ups and emails are handled for us by beehiiv, our email newsletter service, which stores your email address and sends our updates on our behalf.'
     : 'Until our email newsletter service is set up, sign-up requests arrive as an email to us and we add you to our list manually.',
 };
+tokens.PRIVACY_SITE = [
+  'We have not added analytics, advertising or tracking tools of our own to this website, and it does not take donations or payments.',
+  cfg.beehiivEmbedUrl ? 'The newsletter sign-up form in the footer is provided by beehiiv and loads from beehiiv\u2019s servers, so beehiiv receives technical details such as your IP address and browser when a page with the form loads. It may also use cookies or similar technologies, which are described in beehiiv\u2019s own privacy information.' : '',
+  cfg.web3formsAccessKey ? 'If you use the contact form, what you enter is sent from your browser to Web3Forms.' : '',
+  'Our hosting providers may keep standard technical logs (such as IP address and page requested) for security and reliability.',
+].filter(Boolean).join(' ');
+
+const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const gbp0 = (n) => '\u00a3' + Number(n).toLocaleString('en-GB', { maximumFractionDigits: 0 });
+// Static copy of the example Drop cards (same markup as src/script.js) so the content exists without JavaScript.
+const dropsData = JSON.parse(fs.readFileSync(path.join(src, 'data/drops.json'), 'utf8'));
+tokens.DROP_CARDS = dropsData.map((d) => {
+  const tag = d.category.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return '<article class="drop-card" data-category="' + esc(d.category) + '">' +
+    '<div class="card-topline"><span class="tag ' + tag + '">' + esc(d.category) + '</span><span class="status-pill planned">Planned example</span></div>' +
+    '<h3>' + esc(d.title) + '</h3><p>' + esc(d.summary) + '</p>' +
+    '<div class="proof-points">' + d.proofPlan.slice(0, 4).map((x) => '<span>' + esc(x) + '</span>').join('') + '</div>' +
+    '<div class="drop-meta"><span>Example target ' + gbp0(d.exampleTarget) + '</span><span>Raised \u00a30</span></div>' +
+    '<div class="appeal-progress" role="img" aria-label="Not yet open, no funds raised"><span style="--p:0%"></span></div>' +
+    '<details class="drop-details"><summary>Drop details</summary><div class="detail-grid">' +
+    '<div><strong>Need</strong><span>' + esc(d.need) + '</span></div>' +
+    '<div><strong>What it would fund</strong><span>' + d.items.map(esc).join(', ') + '</span></div>' +
+    '<div><strong>Illustrative unit cost</strong><span>' + gbp0(d.unitCost) + ' per ' + esc(d.unitLabel) + '</span></div>' +
+    '<div><strong>Partner</strong><span>To be confirmed after due diligence</span></div>' +
+    '<div><strong>Region</strong><span>To be confirmed</span></div>' +
+    '<div><strong>Close-out</strong><span>Published after delivery</span></div>' +
+    '</div></details>' +
+    '<a class="button button-light full" href="contact.html?topic=updates">Tell me when it launches</a>' +
+    '</article>';
+}).join('');
+
 tokens.SHOP_HOME = shopMod.homeBlock();
 tokens.SHOP_LABEL = shopMod.live ? 'Shop' : 'Shop (coming soon)';
 tokens.SHOP_STATUS = shopMod.live
@@ -80,6 +111,18 @@ const header = fs.readFileSync(path.join(src, 'partials/header.html'), 'utf8');
 const footer = fs.readFileSync(path.join(src, 'partials/footer.html'), 'utf8');
 const pages = [];
 
+// Structured data. No charity number, legal name or registration claim is included while registration is pending.
+function jsonLd(out, title, crumbs) {
+  const url = (p) => `${cfg.siteUrl}/${p}`;
+  const graph = [
+    { '@type': 'Organization', '@id': `${cfg.siteUrl}/#organization`, name: cfg.siteName, url: `${cfg.siteUrl}/`, logo: url('assets/logo.svg'), email: cfg.contactEmail,
+      description: registered ? 'RallyGood funds practical essentials through verified partners and publishes proof of what was delivered.' : 'RallyGood is a charity in development that plans to fund practical essentials through verified partners and publish proof of what was delivered.' },
+    { '@type': 'WebSite', '@id': `${cfg.siteUrl}/#website`, url: `${cfg.siteUrl}/`, name: cfg.siteName, inLanguage: 'en-GB', publisher: { '@id': `${cfg.siteUrl}/#organization` } },
+  ];
+  if (crumbs.length > 1) graph.push({ '@type': 'BreadcrumbList', itemListElement: crumbs.map(([name, p], i) => ({ '@type': 'ListItem', position: i + 1, name, item: p === '' ? `${cfg.siteUrl}/` : url(p) })) });
+  return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>`;
+}
+
 function writePage(out, meta, content, navPath = out) {
   const hdr = header.replace(new RegExp(`(href="/${navPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}")`), '$1 aria-current="page"');
   const html = fill(layout, {
@@ -91,6 +134,7 @@ function writePage(out, meta, content, navPath = out) {
     HEADER: hdr,
     FOOTER: footer,
     CONTENT: content,
+    JSONLD: jsonLd(out, meta.title, out === 'index.html' || out === '404.html' ? [['Home', '']] : out.startsWith('shop/') ? [['Home', ''], ['Shop', 'shop.html'], [meta.title, out]] : [['Home', ''], [meta.title, out]]),
   });
   fs.mkdirSync(path.dirname(path.join(dist, out)), { recursive: true });
   fs.writeFileSync(path.join(dist, out), fill(html));
@@ -131,8 +175,7 @@ for (const prod of shopMod.shop.products) {
 }
 
 // sitemap from built pages
-const today = new Date().toISOString().slice(0, 10);
-const urls = pages.map((f) => `  <url><loc>${cfg.siteUrl}/${f === 'index.html' ? '' : f}</loc><lastmod>${today}</lastmod></url>`).join('\n');
+const urls = pages.map((f) => `  <url><loc>${cfg.siteUrl}/${f === 'index.html' ? '' : f}</loc></url>`).join('\n');
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 
 // Safety gate: the placeholder number must never reach the public output while pending.

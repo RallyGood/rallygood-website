@@ -16,7 +16,7 @@ description: How RallyGood handles personal data on this website and when you co
         <p>RallyGood (charity registration pending) is the data controller for personal data described here. Contact: <a class="text-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
 
         <h2>This website</h2>
-        <p>This website does not use cookies, analytics, advertising trackers or embedded third-party content, and it does not take donations or payments. Our hosting providers may keep standard technical logs (such as IP address and page requested) for security and reliability.</p>
+        <p>{{PRIVACY_SITE}}</p>
 
         <h2>When you contact us</h2>
         <p>{{PRIVACY_FORM}} We use them only to reply to you and to keep a record of the conversation. Our legal basis is legitimate interests in responding to enquiries, and consent where you ask to receive launch updates, which you can withdraw at any time.</p>

@@ -12,11 +12,11 @@ Resume point for another session. Audit detail is in `audit.md`.
 
 | Pri | Item | Location | Status | Blocker | Owner | Next action |
 |---|---|---|---|---|---|---|
-| P0 | Correct privacy notice: it denies embedded third-party content but the beehiiv iframe and Web3Forms exist | `src/privacy.page`, `build.mjs` tokens | Not started | Needs trustee review of wording | Raf / trustees | Draft accurate wording locally; do not publish |
+| P0 | Correct privacy notice: it denied embedded third-party content but the beehiiv iframe and Web3Forms exist | `src/privacy.page`, `scripts/build.mjs` (`PRIVACY_SITE`) | Implemented on branch, awaiting trustee review before merge | Trustee review; beehiiv cookie behaviour still unverified, so wording says it "may" use cookies | Raf / trustees | Review wording in PR; inspect live cookies in a browser |
 | P0 | Inspect cookies/requests set by beehiiv iframe and Web3Forms | live site | Not started | Needs browser inspection | Claude | Load Chrome tools, record cookies and requests |
-| P1 | Add JSON-LD (Organization/NGO, WebSite, BreadcrumbList) with no registration number while pending | `layout.html`, `build.mjs` | Not started | None | Claude | Implement locally, validate JSON |
-| P1 | Render Example Drop cards in static HTML at build time (keep JS filter) | `drops.page`, `build.mjs`, `script.js` | Not started | None | Claude | Implement locally, run checks |
-| P1 | Real `lastmod` in sitemap (from git or file mtime) | `build.mjs` | Not started | None | Claude | Implement locally |
+| P1 | JSON-LD (Organization, WebSite, BreadcrumbList), no registration number or legal name while pending | `layout.html`, `build.mjs` (`jsonLd`) | Implemented on branch; JSON parses on all 19 built pages; not run through Google's Rich Results Test | Needs live deploy to test URLs | Claude | Validate after deploy |
+| P1 | Example Drop cards rendered statically at build time (JS filter kept) | `drops.page`, `build.mjs` (`DROP_CARDS`) | Implemented on branch; built `drops.html` has 4 cards; card/filter checks passed locally | None | Claude | Confirm after deploy |
+| P1 | Remove inaccurate sitemap `lastmod` (CI checkouts are shallow, so git/mtime dates would be equally wrong) | `build.mjs` | Implemented on branch; 0 `lastmod` in built sitemap | None | Claude | Add accurate dates only if a real content-date source is introduced |
 | P1 | Dormant measurement scaffolding: event spec, consent design, disabled loader | docs, `config` | Not started | No GA4 property known | Claude / Raf | Write measurement plan and event spec; no live tag |
 | P2 | Per-page OG metadata and image dimensions | `layout.html`, `build.mjs` | Not started | None | Claude | Implement locally |
 | P2 | Google for Nonprofits UK eligibility and Ad Grants readiness against current official guidance | docs | Awaiting access/verification | Registration pending; needs official source check | Claude then Raf | Research official pages, record source and date |
@@ -40,6 +40,11 @@ No IDs have been requested or assumed.
 2. Local changes for the P1 items marked "None" blocker, followed by a local build and the checks I can actually run.
 3. Official-source research for Google for Nonprofits, recorded with URL and date.
 
-## Test evidence so far
-- `node scripts/build.mjs`: built 12 pages, placeholder-number gate passed (executed this session, local).
-- `scripts/check.py`: **not run**.
+## Test evidence so far (local, synthetic; no live-site deploy)
+- `node scripts/build.mjs`: built 12 pages, placeholder-number gate passed.
+- JSON-LD: parsed with `json.loads` on every built HTML page; types as expected. Not validated with Google Rich Results Test or Schema.org validator (not available here).
+- `python3 scripts/check.py` against local `dist/` (Playwright): 19 pages x 2 viewports, links, nav, Drops filter, split calculator, shop checks ran. Three items flagged:
+  1. `/nope.html` console error x2: the browser's own message for the deliberate 404 test page. Inference: pre-existing, not caused by these changes (baseline not re-run).
+  2. Contact form success state: the script expects the old mailto fallback, but config now uses Web3Forms and this sandbox's network blocks `api.web3forms.com`, so the request failed. Real submission was **not** tested.
+  3. beehiiv iframe also blocked by the sandbox network, so its behaviour and cookies are **unverified**.
+- Not run: Rich Results Test, Lighthouse/CWV, cookie/network inspection of the live site, accessibility audit.
