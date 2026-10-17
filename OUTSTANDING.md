@@ -1,7 +1,7 @@
 # Outstanding items (needs Raf)
 
 ## Access needed – blocked in this session
-1. **GitHub repo** – none exists, and this session has no valid GitHub login (`GH_TOKEN` invalid; sessions are limited to pre-configured repos). Create the repo (suggested name `rallygood-website`, public so free GitHub Pages works), push this folder to `main`, then Settings → Pages → Source: GitHub Actions.
+1. **GitHub repo – resolved:** `RallyGood/rallygood-website` exists and deploys to GitHub Pages on every push to `main`. (Branch pushes and PRs from this session work through the repo connection; the merge to `main` is done by Raf.)
 2. **Cloudflare** – no access. Add the DNS records listed in `README.md` and set the custom domain in GitHub Pages. Confirm `rallygood.org.uk` is registered and on your Cloudflare account (outbound access to the domain is blocked from here, so I could not check it).
 3. **info@rallygood.org.uk** – confirm the mailbox/forwarding exists (MX, SPF, DKIM, DMARC). Not verifiable from here.
 
@@ -17,14 +17,14 @@
 10. No complaints policy in the registration package (site offers "Raise a concern" by email only).
 11. No social media accounts, no photography, no team/trustee bios supplied.
 12. Privacy notice and safeguarding page are summaries drafted from your policy documents – trustees should review before publishing. Privacy notice has no postal address (none approved for public use).
-13. Contact form opens the visitor's email app (static hosting has no server). For direct submissions, add a form service later.
+13. Contact form: now sends through Web3Forms (live test on 2026-10-18 delivered to the info@ inbox). Still to check: spam-folder placement, consent behaviour in the test log (`docs/templates/form-and-newsletter-test-plan.md`).
 14. Security headers: GitHub Pages can't set custom HTTP headers (a CSP is set via meta tag). Optional: add headers via Cloudflare Transform Rules.
 
 ## Nature & wellbeing page (added)
 - `/nature-wellbeing.html` is written from the constitution and charity-setup notes only. Not yet confirmed: session locations, dates, group sizes, facilitators, partners, risk assessments and facilitator checks. Trustees should review the forest-bathing background and the "research suggests" wording before launch.
 
-## Contact form (Web3Forms) and newsletter (beehiiv) – decided, needs your keys
-- Contact form: create a Web3Forms access key for info@rallygood.org.uk (web3forms.com, key is emailed), paste it into `web3formsAccessKey` in `config/site.config.json`, push.
+## Contact form (Web3Forms) and newsletter (beehiiv)
+- Contact form: DONE – Web3Forms key is set and a live test message arrived on 2026-10-18. The privacy notice names Web3Forms and says the email includes the sender's IP address and topic.
 - Newsletter: DONE – beehiiv publication "RallyGood" and subscribe form created; embed URL set in config. Remaining in beehiiv: postal address in email footer settings, welcome email, sender name/reply-to, check free-plan limits after the Pro trial.
 - Until both are set the site falls back to mailto and the privacy notice says so; once set it names Web3Forms and beehiiv automatically.
 - Then: accept each provider's data-processing terms, and have trustees review the privacy notice.
@@ -47,3 +47,10 @@ Everything is generated from `config/shop.json` (products, prices, costs, specs,
 - Shop income is treated separately from the 85/15 Drop split; confirm how it is accounted for.
 - Privacy notice: update if the chosen payment/fulfilment providers process customer data.
 - The generic "Limited Drop T-shirt" concept was replaced by the two country Drop tees.
+
+## Analytics, Search Console and templates (added 18 Oct 2026)
+- GA4 (`G-WQH6PTFD4X`) loads only after the visitor accepts the cookie banner. Admin settings applied by Raf; first data seen. Open: mark `contact_form_submit` as a key event once it appears.
+- Search Console: not yet set up (steps in `docs/implementation/search-console-setup.md`; needs a DNS TXT record in Cloudflare).
+- Newsletter and cookie checks: not yet run live (`docs/templates/form-and-newsletter-test-plan.md`, section B).
+- Unpublished drafts needing trustee input: `docs/templates/` (governance page, complaints policy, Drop and close-out templates, donation wording, partner due diligence). Decisions are listed in `docs/implementation/trustee-decision-brief.md`.
+- Google for Nonprofits / Ad Grants: wait for charity registration (`docs/implementation/google-for-nonprofits.md`).
