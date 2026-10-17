@@ -1,3 +1,5 @@
+> **Update 2026-10-17 (checkpoint 2):** the fixes described in `plan-and-status.md` were merged (PR #2) and deployed. Findings below are as first observed, before those changes; see `plan-and-status.md` for current status.
+
 # RallyGood implementation audit (checkpoint 1)
 
 Date: 2026-10-17. Method: shallow clone of `RallyGood/rallygood-website` (HEAD `1000ecb`), local build (`node scripts/build.mjs`, Node 22.22.0, 12 indexable pages), and fetches of the live site via WebFetch. Direct `curl` to rallygood.org.uk is blocked by the session proxy (403), so response headers and redirect behaviour are **not verified**.
