@@ -28,3 +28,22 @@
 - Newsletter: DONE – beehiiv publication "RallyGood" and subscribe form created; embed URL set in config. Remaining in beehiiv: postal address in email footer settings, welcome email, sender name/reply-to, check free-plan limits after the Pro trial.
 - Until both are set the site falls back to mailto and the privacy notice says so; once set it names Web3Forms and beehiiv automatically.
 - Then: accept each provider's data-processing terms, and have trustees review the privacy notice.
+
+## Shop (added 17 Oct 2026) – built, in preview, ready to go live
+Everything is generated from `config/shop.json` (products, prices, costs, specs, policies, images). Page layout is in `scripts/shop.mjs`. `site.config.json` → `shopStatus` is `"preview"`.
+
+**Preview state (now):** `/shop.html` (3 groups: Core range, Drop editions, £10 and under), six product pages under `/shop/`, and a 3-card block on the homepage. The **Buy merchandise** button is on every product page but disabled ("opens after registration"). Product pages are `noindex` while in preview. Photos are illustrated mock-ups; sizes, materials, costs and delivery are **sample figures** (costs come from the research file's planning assumptions).
+
+**To go live** (the build refuses to publish the shop live until all of these are true):
+1. `registrationStatus` is `"registered"` with the real charity number.
+2. For each product in `config/shop.json`: replace the sample text/numbers (specs, costs, made/dispatch, funding wording) and images (drop files in `src/assets/shop/`, update `image`/`alt`), then set `detailsStatus` and `imagesStatus` to `"confirmed"`.
+3. Give each product an https `checkoutUrl` (e.g. a payment link from whichever provider is chosen). No payment provider is chosen yet.
+4. Set `shopStatus` to `"live"` and push. Sample banners, "Coming soon" labels and "provisional" wording disappear automatically.
+
+**Decisions for trustees before launch**
+- Lebanon and Palestine Drop tees: sample designs from Raf's mock-ups. No such Drop, partner or approved design exists. Trustees should review the artwork (cedar, olive sprig, flag-like colourways) and the wording "RallyGood's purpose is the relief of people in need; this item is not a statement on any political issue" for charity-law neutrality. The amount going to each Drop is "to be confirmed" and must be set (and a Drop actually opened) before sale.
+- Written trading position (HMRC non-primary-purpose trading; confirm small-trading exemption with accountant), VAT treatment, commercial-participator agreement if any artist is involved.
+- Delivery (£3.95, free over £60), returns wording and dispatch times are placeholders; confirm with the real supplier and policy. Add a complaints/returns policy page if wanted.
+- Shop income is treated separately from the 85/15 Drop split; confirm how it is accounted for.
+- Privacy notice: update if the chosen payment/fulfilment providers process customer data.
+- The generic "Limited Drop T-shirt" concept was replaced by the two country Drop tees.

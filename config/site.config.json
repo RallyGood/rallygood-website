@@ -5,9 +5,13 @@
   "contactEmail": "info@rallygood.org.uk",
   "registrationStatus": "pending",
   "charityNumber": "1234567890",
+  "shopStatus": "preview",
+  "designerName": "AIBI Systems Ltd",
+  "designerUrl": "https://www.aibisystems.co.uk",
   "_notes": {
     "charityNumber": "TEMPORARY PLACEHOLDER. Not valid. Never published while registrationStatus is 'pending' (the build fails if it leaks).",
     "howToGoLive": "When the Charity Commission issues the real number: set charityNumber to it and registrationStatus to 'registered', then push to main.",
+    "shopGoLive": "Shop stays in preview (no purchases) until shopStatus is set to live. The build refuses live unless registrationStatus is registered, every product in config/shop.json is confirmed (details and images) and has an https checkoutUrl.",
     "formEndpoints": "Contact form: paste the Web3Forms access key (public by design) into web3formsAccessKey. Newsletter: paste the beehiiv subscribe-form embed URL (the iframe src) into beehiivEmbedUrl. While empty, both fall back to mailto. contactFormEndpoint is an optional generic override."
   },
   "contactFormEndpoint": "",

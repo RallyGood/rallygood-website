@@ -76,6 +76,8 @@ description: RallyGood is a charity in development that will rally people around
       </div>
     </section>
 
+    {{SHOP_HOME}}
+
     <section class="section section-dark" id="proof">
       <div class="shell proof-grid">
         <div>

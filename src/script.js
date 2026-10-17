@@ -70,6 +70,25 @@
     });
   }
 
+  /* ---------- Product gallery ---------- */
+  var gallery = document.querySelector('[data-gallery]');
+  if (gallery) {
+    var main = gallery.querySelector('.product-main');
+    var thumbs = gallery.querySelectorAll('.gallery-thumb');
+    var colourSel = document.querySelector('#opt-colour');
+    var showColour = function (id) {
+      thumbs.forEach(function (t) {
+        var on = t.dataset.colour === id;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-pressed', String(on));
+        if (on) { main.src = t.dataset.image; main.alt = t.dataset.alt; }
+      });
+      if (colourSel && colourSel.value !== id) colourSel.value = id;
+    };
+    thumbs.forEach(function (t) { t.addEventListener('click', function () { showColour(t.dataset.colour); }); });
+    if (colourSel) colourSel.addEventListener('change', function () { showColour(colourSel.value); });
+  }
+
   /* ---------- 85/15 illustration ---------- */
   var split = document.querySelector('[data-split]');
   if (split) {
@@ -98,7 +117,7 @@
   var form = document.querySelector('#contact-form');
   if (form) {
     var EMAIL = 'info@rallygood.org.uk';
-    var topics = { general: 'General question', updates: 'Launch updates', team: 'Rally Team', sponsor: 'Business sponsorship', partner: 'Delivery partner enquiry', concern: 'Raise a concern' };
+    var topics = { general: 'General question', updates: 'Launch updates', shop: 'Shop launch updates', team: 'Rally Team', sponsor: 'Business sponsorship', partner: 'Delivery partner enquiry', concern: 'Raise a concern' };
     var qs = new URLSearchParams(location.search).get('topic');
     if (qs && topics[qs]) form.elements.topic.value = qs;
 

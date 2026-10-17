@@ -28,6 +28,7 @@ description: Contact RallyGood – questions, launch updates, partnership and sp
             <select id="cf-topic" name="topic">
               <option value="general">General question</option>
               <option value="updates">Launch updates</option>
+              <option value="shop">Shop launch updates</option>
               <option value="team">Starting a Rally Team</option>
               <option value="sponsor">Business sponsorship</option>
               <option value="partner">Delivery partner enquiry</option>
