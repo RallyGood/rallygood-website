@@ -144,11 +144,12 @@
       var statusEl = document.getElementById('cf-status');
       if (endpoint) {
         if (form.elements._gotcha && form.elements._gotcha.value) return;
+        var sentTopic = form.elements.topic.value;
         var btn = form.querySelector('button[type=submit]'); btn.disabled = true; statusEl.textContent = 'Sending…';
         fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ access_key: '{{WEBFORMS_KEY}}', name: name, email: email, topic: topics[form.elements.topic.value], message: msg, subject: subject, _subject: subject, botcheck: '' }) })
           .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || j.success === false) throw new Error(r.status); }); })
-          .then(function () { form.reset(); statusEl.textContent = 'Thank you – your message has been sent. We will reply to the email address you gave.'; })
+            .then(function () { if (window.rgTrack) window.rgTrack('contact_form_submit', { topic: sentTopic }); form.reset(); statusEl.textContent = 'Thank you – your message has been sent. We will reply to the email address you gave.'; })
           .catch(function () { statusEl.innerHTML = 'Sorry, that did not send. Please email <a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a> directly.'; })
           .then(function () { btn.disabled = false; });
         return;

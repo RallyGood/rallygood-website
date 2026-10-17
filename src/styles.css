@@ -505,3 +505,15 @@ details p { color: var(--muted); margin: .7rem 0 0; }
 .site-footer .legal-line { font-size: .85rem; }
 .site-footer .credit { font-size: .85rem; }
 .site-footer .credit a { font-weight: 850; }
+
+/* Consent banner and preferences link */
+.consent-banner { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 90; max-width: 46rem; margin: 0 auto; background: var(--white); color: var(--ink); border: 2px solid var(--ink); border-radius: 20px; box-shadow: var(--shadow-strong); padding: 1.1rem 1.25rem; }
+.consent-banner[hidden] { display: none; }
+.consent-banner h2 { margin: 0 0 .35rem; font-size: 1.05rem; }
+.consent-banner h2:focus { outline: 3px solid var(--purple); outline-offset: 3px; }
+.consent-banner p { margin: 0 0 .6rem; font-size: .95rem; }
+.consent-banner .consent-state:empty { display: none; }
+.consent-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+.consent-btn { flex: 1 1 10rem; border: 2px solid var(--ink); background: var(--white); color: var(--ink); padding: .75rem 1rem; border-radius: 999px; font-weight: 900; }
+.consent-btn:hover, .consent-btn:focus-visible { background: var(--ink); color: var(--white); }
+.link-button { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; font: inherit; }
