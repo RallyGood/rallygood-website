@@ -32,4 +32,12 @@ The shop is generated from `config/shop.json` by `scripts/shop.mjs` (shop page, 
 `python3 scripts/check.py http://localhost:8099` (needs Playwright) checks status codes, console errors, internal links/anchors, mailto addresses, horizontal overflow at desktop and 390px, nav, filters, split calculator and form validation. Serve `dist/` first: `cd dist && python3 -m http.server 8099`.
 
 ## Contact form
-GitHub Pages has no server, so the form opens the visitor's email app with a pre-filled message to `info@rallygood.org.uk`. To receive submissions without an email app, connect a form service (e.g. Cloudflare Worker, Formspree) and update the CSP in `src/layout.html`.
+The form posts to Web3Forms using the public access key in `config/site.config.json`, which emails submissions to `info@rallygood.org.uk`. If sending fails the page tells the visitor to email directly. Without a key the build falls back to a `mailto:` link.
+
+## Analytics and consent
+Google Analytics 4 is set by `ga4MeasurementId` in `config/site.config.json` and loads only after a visitor accepts the cookie banner (`src/consent.js`). Remove the ID to turn analytics off completely; the CSP and privacy text adjust automatically. Details: `docs/implementation/measurement-and-consent.md`.
+
+## More checks
+- `node scripts/ci-check.mjs` (after a build) checks links, page metadata, sitemap, no Google script before consent, and that pre-launch disclosures remain. It also runs on every pull request (`.github/workflows/check.yml`).
+- `python3 scripts/consent-test.py` (needs Playwright, serve `dist/` first) runs the 30-check consent matrix.
+- Planning docs live in `docs/implementation/`; unpublished drafts in `docs/templates/`.

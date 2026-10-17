@@ -19,6 +19,7 @@ description: Illustrative examples of the Drops RallyGood plans to run across fo
           <button type="button" class="filter-button" data-filter="Warmth" aria-pressed="false">Warmth</button>
           <button type="button" class="filter-button" data-filter="Shelter" aria-pressed="false">Shelter</button>
         </div>
+        <h2 class="sr-only">Planned Drops</h2>
         <div class="drop-grid" id="drop-grid" aria-live="polite">
           {{DROP_CARDS}}
         </div>

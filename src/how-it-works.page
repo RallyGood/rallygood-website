@@ -12,6 +12,7 @@ description: How RallyGood Drops will work – verify, fund, deliver, prove – 
 
     <section class="section">
       <div class="shell">
+        <h2 class="sr-only">The four steps of a Drop</h2>
         <div class="steps-grid four">
           <article class="step-card"><span>01</span><h3>Verify</h3><p>Before any Drop opens we confirm the need, the local partner, the costs, the delivery route, the risks and how evidence will be collected.</p></article>
           <article class="step-card"><span>02</span><h3>Fund</h3><p>A Drop is published with a target, a cost breakdown and a named partner. People give, share and fundraise in teams.</p></article>

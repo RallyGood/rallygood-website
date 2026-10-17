@@ -1,3 +1,5 @@
+> **Update 2026-10-18:** accessibility scan (axe-core, WCAG 2.x A/AA and best-practice rules, 19 pages, desktop and 375px) found no WCAG failures; it did flag a status banner outside a landmark and two heading-order skips, now fixed. Automated scanning covers only part of accessibility; no manual screen-reader or keyboard review beyond the consent banner has been done.
+>
 > **Update 2026-10-17 (checkpoint 2):** the fixes described in `plan-and-status.md` were merged (PR #2) and deployed. Findings below are as first observed, before those changes; see `plan-and-status.md` for current status.
 
 # RallyGood implementation audit (checkpoint 1)
