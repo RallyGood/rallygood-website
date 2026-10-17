@@ -98,7 +98,7 @@
   var form = document.querySelector('#contact-form');
   if (form) {
     var EMAIL = 'info@rallygood.org.uk';
-    var topics = { general: 'General question', updates: 'Launch updates', team: 'Rally Team', sponsor: 'Business sponsorship', partner: 'Delivery partner enquiry', concern: 'Raise a concern' };
+    var topics = { general: 'General question', updates: 'Launch updates', shop: 'Shop launch updates', team: 'Rally Team', sponsor: 'Business sponsorship', partner: 'Delivery partner enquiry', concern: 'Raise a concern' };
     var qs = new URLSearchParams(location.search).get('topic');
     if (qs && topics[qs]) form.elements.topic.value = qs;
 

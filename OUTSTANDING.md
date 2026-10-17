@@ -28,3 +28,11 @@
 - Newsletter: DONE – beehiiv publication "RallyGood" and subscribe form created; embed URL set in config. Remaining in beehiiv: postal address in email footer settings, welcome email, sender name/reply-to, check free-plan limits after the Pro trial.
 - Until both are set the site falls back to mailto and the privacy notice says so; once set it names Web3Forms and beehiiv automatically.
 - Then: accept each provider's data-processing terms, and have trustees review the privacy notice.
+
+## Shop (added 17 Oct 2026) – coming-soon page only
+- `/shop.html` shows the five concept products (core tee £25, limited Drop tee £30, tote £20, pin £10, stickers £5) as **not for sale**, with provisional prices and a "Tell me when the shop opens" link (contact form topic `shop`). There is deliberately **no cart, checkout or payment** – no bank account, payment provider or registration yet.
+- Images are the illustrated concept mock-ups (flat illustrations with a baked-in "Coming soon" banner), not photographs. Replace with real sample photos before launch; the Drop tee illustration's logo is faint.
+- The shop page says the 85/15 split applies to Drop donations, not shop income. Decide and publish how shop income is treated before opening.
+- Before real sales: trustees approve a written trading position (HMRC non-primary-purpose trading; confirm small-trading exemption with the accountant); approve samples; confirm supplier costs/VAT; delivery, returns (14-day cancellation rights), privacy and complaints wording; payment provider; per-product "where the money goes" figures; any artist/commercial-participator agreement in writing.
+- Not included: country-specific Drop tees (Lebanon, Palestine concept images). No such Drop, partner or approved design exists, and they would need a trustee view on political neutrality and imagery. Add only when a real, verified Drop exists.
+- Research file figures (e.g. 98/2 framing, £3.95 delivery) are planning assumptions and were not published.

@@ -1,0 +1,117 @@
+---
+title: Shop (coming soon)
+description: RallyGood merchandise is planned but not on sale yet. See the proposed range, what we will disclose about where the money goes, and how to hear when it opens.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Shop</p>
+        <h1>Wear it. Carry it. Rally good.</h1>
+        <p class="lead-small">We are planning a small RallyGood shop. <strong>Nothing is on sale yet and we cannot take orders.</strong> The pictures and prices below are early proposals so you can see where we are heading.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="notice-card notice-top">
+          <span>Coming soon</span>
+          <p>Items are illustrated concepts, not photographs of finished products. Prices, materials, sizes and colours are provisional and will be confirmed after we approve samples.</p>
+        </div>
+
+        <div class="shop-grid" id="shop-grid">
+          <article class="shop-card">
+            <div class="shop-images two">
+              <img src="/assets/shop/core-tee.png" alt="Illustrated concept of a black RallyGood T-shirt with a small full-colour logo on the chest. Not a photograph of a finished product." width="1200" height="1200" loading="lazy">
+              <img src="/assets/shop/core-tee-off-white.png" alt="Illustrated concept of an off-white RallyGood T-shirt with a small full-colour logo on the chest. Not a photograph of a finished product." width="1200" height="1200" loading="lazy">
+            </div>
+            <div class="card-topline"><span class="tag">T-shirt</span><span class="status-pill planned">Coming soon</span></div>
+            <h3>RallyGood Core T-shirt</h3>
+            <p class="shop-price">Planned price £25 <small>(provisional)</small></p>
+            <p>An everyday T-shirt with a small full-colour chest mark. Proposed colours: black and off-white.</p>
+            <p class="shop-note">Fabric, fit, size range and print method are not yet confirmed.</p>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-images"><img src="/assets/shop/drop-tee.png" alt="Illustrated concept of a limited-edition RallyGood Drop T-shirt with a large graphic panel. Not a photograph of a finished product." width="1200" height="1200" loading="lazy"></div>
+            <div class="card-topline"><span class="tag">Limited edition</span><span class="status-pill planned">Concept</span></div>
+            <h3>Limited Drop T-shirt</h3>
+            <p class="shop-price">Planned price £30 <small>(provisional)</small></p>
+            <p>An idea for a time-limited T-shirt linked to a future Drop. This design is a placeholder only.</p>
+            <p class="shop-note">There is no artist, country, partner or Drop attached to it. Artwork, permissions, edition size and any amount going to a Drop are all still to be decided.</p>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-images"><img src="/assets/shop/tote.png" alt="Illustrated concept of a natural-colour RallyGood tote bag with a bold full-colour logo. Not a photograph of a finished product." width="1200" height="1200" loading="lazy"></div>
+            <div class="card-topline"><span class="tag">Tote</span><span class="status-pill planned">Coming soon</span></div>
+            <h3>RallyGood Everyday Tote</h3>
+            <p class="shop-price">Planned price £20 <small>(provisional)</small></p>
+            <p>A natural-colour tote with a bold full-colour mark, for everyday essentials, books and errands.</p>
+            <p class="shop-note">Material, size, handle length, load capacity and care instructions will be confirmed after sampling.</p>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-images"><img src="/assets/shop/pin.png" alt="Illustrated concept of a small enamel-style RallyGood pin badge in four colours. Not a photograph of a finished product." width="1200" height="1200" loading="lazy"></div>
+            <div class="card-topline"><span class="tag">Pin</span><span class="status-pill planned">Coming soon</span></div>
+            <h3>RallyGood Colour Pin</h3>
+            <p class="shop-price">Planned price £10 <small>(provisional)</small></p>
+            <p>An enamel-style pin that brings the four-colour symbol to jackets, bags and lanyards.</p>
+            <p class="shop-note">Proposed size about 25 mm. Finish, fastening and packaging are not confirmed. Not intended for children.</p>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-images"><img src="/assets/shop/stickers.png" alt="Illustrated concept of a pack of four RallyGood stickers. Not a photograph of a finished product." width="1200" height="1200" loading="lazy"></div>
+            <div class="card-topline"><span class="tag">Stickers</span><span class="status-pill planned">Coming soon</span></div>
+            <h3>RallyGood Sticker Pack</h3>
+            <p class="shop-price">Planned price £5 <small>(provisional)</small></p>
+            <p>Four designs mixing the RallyGood symbol with upbeat typography.</p>
+            <p class="shop-note">Size, material and adhesive are not confirmed.</p>
+          </article>
+
+          <article class="shop-card shop-card-cta">
+            <h3>Want to know when it opens?</h3>
+            <p>Tell us you are interested and we will let you know when the shop is ready, using only the details you give us.</p>
+            <a class="button button-primary full" href="contact.html?topic=shop">Tell me when the shop opens</a>
+            <p class="shop-note">Or use the newsletter sign-up at the bottom of any page.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="shell">
+        <div class="section-heading wide">
+          <p class="eyebrow">Where the money goes</p>
+          <h2>A purchase is not a donation.</h2>
+          <p>When the shop opens, every product page will show the price, what it costs to make and send, and how much is left for RallyGood's charitable work.</p>
+        </div>
+        <div class="check-grid">
+          <div class="check-item">Price, direct costs and the amount left for RallyGood, shown separately</div>
+          <div class="check-item">For limited editions, the exact amount or formula going to the named Drop</div>
+          <div class="check-item">No “100% goes to charity” claims unless we can prove them</div>
+          <div class="check-item">Any optional donation kept separate from the purchase</div>
+          <div class="check-item">Delivery, returns and your legal rights set out before you buy</div>
+          <div class="check-item">Real photographs, measurements and materials for every item</div>
+        </div>
+        <div class="notice-card">
+          <span>Please note</span>
+          <p>The 85% / 15% split on our <a class="text-link" href="how-it-works.html">How it works</a> page describes donations to Drops. Shop income is different: it has its own costs, and we will publish its figures separately.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading wide">
+          <p class="eyebrow">Before we open</p>
+          <h2>What has to happen first</h2>
+        </div>
+        <div class="check-grid">
+          <div class="check-item">Charity registration completed</div>
+          <div class="check-item">Samples approved, washed and measured</div>
+          <div class="check-item">Supplier costs and delivery confirmed</div>
+          <div class="check-item">Payments, returns and privacy arrangements in place</div>
+          <div class="check-item">Trustees' approval of how we trade</div>
+          <div class="check-item">Funding information for each item published</div>
+        </div>
+        <p class="small-print shop-foot">Questions? <a class="text-link" href="contact.html">Get in touch</a> or email <a class="text-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
+      </div>
+    </section>
