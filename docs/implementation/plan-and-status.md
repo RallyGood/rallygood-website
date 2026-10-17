@@ -1,6 +1,17 @@
-# Plan and status (checkpoint 1, 2026-10-17)
+# Plan and status (checkpoint 2, 2026-10-17)
 
 Resume point for another session. Audit detail is in `audit.md`.
+
+## Update, checkpoint 2
+PR #2 was merged to `main` by Raf and the Pages deploy run succeeded; the live site was inspected afterwards (home page JSON-LD, og:image dimensions, consent banner and `region1.google-analytics.com` requests after accepting). Rows below that say "on branch" or "not deployed" describe the state at checkpoint 1; read them with this update. Still unverified live: first-visit consent in a private window, GA4 receiving and processing data (check Realtime), beehiiv iframe cookies, live Web3Forms submission, Rich Results Test, Lighthouse/field data. The trustee review of the now-live privacy wording is outstanding.
+
+## Owner confirmations, 2026-10-18 (reported by Raf in chat; not independently verified by me)
+- First-visit consent behaviour checked by Raf and approved.
+- GA4 admin settings applied as per the checklist in `measurement-and-consent.md`.
+- Trustees reviewed and approved the live privacy wording.
+- GA4 shows data: one visit logged (so GA4 receipt is confirmed; volume is too small to assess anything).
+- Search Console: not yet configured (steps in `search-console-setup.md`).
+- Open: mark `contact_form_submit` as a key event once it appears; beehiiv cookies; live Web3Forms test; Rich Results Test; PageSpeed.
 
 ## Constraints for any session
 - Pushing or merging to `main` deploys to production (GitHub Pages). Do not push without explicit approval.
@@ -17,10 +28,11 @@ Resume point for another session. Audit detail is in `audit.md`.
 | P1 | JSON-LD (Organization, WebSite, BreadcrumbList), no registration number or legal name while pending | `layout.html`, `build.mjs` (`jsonLd`) | Implemented on branch; JSON parses on all 19 built pages; not run through Google's Rich Results Test | Needs live deploy to test URLs | Claude | Validate after deploy |
 | P1 | Example Drop cards rendered statically at build time (JS filter kept) | `drops.page`, `build.mjs` (`DROP_CARDS`) | Implemented on branch; built `drops.html` has 4 cards; card/filter checks passed locally | None | Claude | Confirm after deploy |
 | P1 | Remove inaccurate sitemap `lastmod` (CI checkouts are shallow, so git/mtime dates would be equally wrong) | `build.mjs` | Implemented on branch; 0 `lastmod` in built sitemap | None | Claude | Add accurate dates only if a real content-date source is introduced |
-| P1 | Consent-gated GA4 (`G-WQH6PTFD4X`), banner, CSP, privacy text, 3 events | `src/consent.js`, `build.mjs`, `layout.html`, `footer.html`, `styles.css`, `script.js`, `scripts/consent-test.py`, `measurement-and-consent.md`, `event-specification.csv` | **Implemented on branch, tested locally with Google stubbed (30/30); not deployed; not verified against a live property** | Trustee review of privacy text; Raf's GA4 admin steps; merge approval | Raf / trustees | Review PR; follow GA4 owner checklist; after deploy verify in Realtime/DebugView |
+| P1 | Consent-gated GA4 (`G-WQH6PTFD4X`), banner, CSP, privacy text, 3 events | `src/consent.js`, `build.mjs`, `layout.html`, `footer.html`, `styles.css`, `script.js`, `scripts/consent-test.py`, `measurement-and-consent.md`, `event-specification.csv` | **Merged and deployed (PR #2). Tested locally with Google stubbed (30/30). Live: banner and analytics requests after accept observed; GA4 data receipt not confirmed** | Trustee review of privacy text; Raf's GA4 admin steps; merge approval | Raf / trustees | Review PR; follow GA4 owner checklist; after deploy verify in Realtime/DebugView |
 | P2 | Social metadata: image width/height/alt, Twitter title/description/image, optional per-page `image` front matter | `layout.html`, `build.mjs` | Implemented on branch; all 19 built pages have the tags | No page-specific artwork exists; every page still uses the one social card (I did not invent images) | Trustees | Supply page-specific images if wanted; check previews after deploy |
 | P2 | Google for Nonprofits UK eligibility and Ad Grants readiness | `google-for-nonprofits.md` | Assessed from official pages 2026-10-17; **awaiting eligibility** | Charity registration pending; Ad Grants programme eligibility page not retrievable | Raf | Complete registration; confirm no existing GfN account |
-| P2 | Reporting specification (Looker Studio) | docs | Not started | No GA4/GSC access | Claude | Spec only; not a connected dashboard |
+| P2 | Reporting specification (Looker Studio) | `reporting-specification.md` | Spec written (docs PR); no dashboard exists | No GA4/GSC access | Raf | Build only when Google account access exists |
+| P2 | Performance sample, Search Console steps, image/schema audit, SEO and content plan | `performance.md`, `search-console-setup.md`, `image-and-schema-audit.md`, `seo-and-content-plan.md` | Written (docs PR). Lab sample only; Search Console steps not checked against current Google docs | Search Console verification (DNS TXT, owner approval) | Raf | Follow `search-console-setup.md`; run PageSpeed and Rich Results Test manually |
 | P3 | Merchant Center | `merchant-eligibility.md` | Not applicable (decision recorded) | No live merchandise | n/a | Revisit at shop launch |
 
 ## Minimum access and approval requests
