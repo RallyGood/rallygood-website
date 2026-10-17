@@ -29,10 +29,21 @@
 - Until both are set the site falls back to mailto and the privacy notice says so; once set it names Web3Forms and beehiiv automatically.
 - Then: accept each provider's data-processing terms, and have trustees review the privacy notice.
 
-## Shop (added 17 Oct 2026) – coming-soon page only
-- `/shop.html` shows the five concept products (core tee £25, limited Drop tee £30, tote £20, pin £10, stickers £5) as **not for sale**, with provisional prices and a "Tell me when the shop opens" link (contact form topic `shop`). There is deliberately **no cart, checkout or payment** – no bank account, payment provider or registration yet.
-- Images are the illustrated concept mock-ups (flat illustrations with a baked-in "Coming soon" banner), not photographs. Replace with real sample photos before launch; the Drop tee illustration's logo is faint.
-- The shop page says the 85/15 split applies to Drop donations, not shop income. Decide and publish how shop income is treated before opening.
-- Before real sales: trustees approve a written trading position (HMRC non-primary-purpose trading; confirm small-trading exemption with the accountant); approve samples; confirm supplier costs/VAT; delivery, returns (14-day cancellation rights), privacy and complaints wording; payment provider; per-product "where the money goes" figures; any artist/commercial-participator agreement in writing.
-- Not included: country-specific Drop tees (Lebanon, Palestine concept images). No such Drop, partner or approved design exists, and they would need a trustee view on political neutrality and imagery. Add only when a real, verified Drop exists.
-- Research file figures (e.g. 98/2 framing, £3.95 delivery) are planning assumptions and were not published.
+## Shop (added 17 Oct 2026) – built, in preview, ready to go live
+Everything is generated from `config/shop.json` (products, prices, costs, specs, policies, images). Page layout is in `scripts/shop.mjs`. `site.config.json` → `shopStatus` is `"preview"`.
+
+**Preview state (now):** `/shop.html` (3 groups: Core range, Drop editions, £10 and under), six product pages under `/shop/`, and a 3-card block on the homepage. The **Buy merchandise** button is on every product page but disabled ("opens after registration"). Product pages are `noindex` while in preview. Photos are illustrated mock-ups; sizes, materials, costs and delivery are **sample figures** (costs come from the research file's planning assumptions).
+
+**To go live** (the build refuses to publish the shop live until all of these are true):
+1. `registrationStatus` is `"registered"` with the real charity number.
+2. For each product in `config/shop.json`: replace the sample text/numbers (specs, costs, made/dispatch, funding wording) and images (drop files in `src/assets/shop/`, update `image`/`alt`), then set `detailsStatus` and `imagesStatus` to `"confirmed"`.
+3. Give each product an https `checkoutUrl` (e.g. a payment link from whichever provider is chosen). No payment provider is chosen yet.
+4. Set `shopStatus` to `"live"` and push. Sample banners, "Coming soon" labels and "provisional" wording disappear automatically.
+
+**Decisions for trustees before launch**
+- Lebanon and Palestine Drop tees: sample designs from Raf's mock-ups. No such Drop, partner or approved design exists. Trustees should review the artwork (cedar, olive sprig, flag-like colourways) and the wording "RallyGood's purpose is the relief of people in need; this item is not a statement on any political issue" for charity-law neutrality. The amount going to each Drop is "to be confirmed" and must be set (and a Drop actually opened) before sale.
+- Written trading position (HMRC non-primary-purpose trading; confirm small-trading exemption with accountant), VAT treatment, commercial-participator agreement if any artist is involved.
+- Delivery (£3.95, free over £60), returns wording and dispatch times are placeholders; confirm with the real supplier and policy. Add a complaints/returns policy page if wanted.
+- Shop income is treated separately from the 85/15 Drop split; confirm how it is accounted for.
+- Privacy notice: update if the chosen payment/fulfilment providers process customer data.
+- The generic "Limited Drop T-shirt" concept was replaced by the two country Drop tees.

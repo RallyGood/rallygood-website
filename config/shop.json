@@ -1,0 +1,170 @@
+{
+  "_readme": [
+    "Single source of truth for the shop. scripts/shop.mjs builds the shop page, every product page and the homepage block from this file.",
+    "Every product starts with detailsStatus and imagesStatus set to 'sample'. Replace the text/numbers/images, then set them to 'confirmed'.",
+    "The build REFUSES to publish the shop as live (site.config.json shopStatus = 'live') unless: registrationStatus is 'registered', every product is 'confirmed' for details and images, and every product has a checkoutUrl.",
+    "To change a price, edit price and the costs below; the 'left for RallyGood' figure is calculated automatically.",
+    "Images live in src/assets/shop/. To swap a photo, drop the new file in that folder and change the image path/alt here."
+  ],
+  "groups": [
+    { "id": "core", "title": "Core range", "blurb": "Our everyday RallyGood pieces. These will always be part of the shop." },
+    { "id": "drop", "title": "Drop editions", "blurb": "Limited, time-boxed items linked to a specific Drop. Art first, logo second." },
+    { "id": "small", "title": "£10 and under", "blurb": "Small, easy ways to show support, and good add-ons to any order." }
+  ],
+  "policies": {
+    "delivery": [
+      "UK standard delivery £3.95 per order; free UK delivery on orders of £60 or more.",
+      "Items printed to order are dispatched separately from stocked items, so they may arrive in more than one parcel.",
+      "International delivery is not planned at launch."
+    ],
+    "returns": [
+      "You can cancel within 14 days of receiving your order and then have a further 14 days to send it back. We refund the item price and standard delivery.",
+      "If something arrives faulty or damaged, contact us and we will repair, replace or refund it.",
+      "These are your statutory rights and they apply whatever else we say."
+    ],
+    "donation": "Buying merchandise is not a donation and is not eligible for Gift Aid. If we offer an optional donation at checkout it will be a separate, clearly labelled amount."
+  },
+  "sizeGuide": {
+    "note": "Sample measurements in cm, laid flat. Final measurements will come from the approved garment.",
+    "columns": ["Size", "Chest (flat)", "Length"],
+    "rows": [["XS","47","66"],["S","50","69"],["M","53","71"],["L","56","73"],["XL","59","75"],["2XL","62","77"],["3XL","65","79"]]
+  },
+  "products": [
+    {
+      "slug": "core-tee",
+      "group": "core",
+      "name": "RallyGood Core T-shirt",
+      "tag": "T-shirt",
+      "price": 25,
+      "blurb": "An everyday T-shirt with the full-colour RallyGood mark.",
+      "description": ["Wear the RallyGood spirit. A clean, easy-to-style unisex T-shirt with the full-colour RallyGood symbol on the chest.", "Available in black and off-white."],
+      "colourways": [
+        { "id": "black", "name": "Black", "image": "/assets/shop/core-tee.png", "alt": "Sample illustration of a black RallyGood T-shirt with a small full-colour logo on the chest." },
+        { "id": "off-white", "name": "Off-white", "image": "/assets/shop/core-tee-off-white.png", "alt": "Sample illustration of an off-white RallyGood T-shirt with a small full-colour logo on the chest." }
+      ],
+      "sizes": ["XS","S","M","L","XL","2XL","3XL"],
+      "sizeGuide": true,
+      "specs": [["Fit","Regular unisex fit"],["Fabric","100% cotton, approx. 180 gsm"],["Print","Full-colour digital print, chest"],["Care","Machine wash at 30°C, inside out"]],
+      "costs": [["Production (blank + print)", 12.00],["Payment processing", 0.58],["Returns and defects reserve", 1.25]],
+      "made": "Printed to order in the UK.",
+      "dispatch": "Dispatched within 5–10 working days.",
+      "funding": "The amount left after direct costs supports RallyGood's charitable work generally, and covers design, overheads and tax. It is not allocated to a specific Drop.",
+      "checkoutUrl": "",
+      "detailsStatus": "sample",
+      "imagesStatus": "sample"
+    },
+    {
+      "slug": "lebanon-drop-tee",
+      "group": "drop",
+      "name": "Lebanon Drop T-shirt",
+      "tag": "Drop edition",
+      "price": 30,
+      "blurb": "Limited-edition tee with a cedar motif, for a future Lebanon Drop.",
+      "description": ["A limited-edition T-shirt carrying the RallyGood mark and a cedar motif, designed to accompany a future Lebanon Drop.", "Three colourways: Original + Cedar, Limited colourway and One-colour edition."],
+      "colourways": [
+        { "id": "original", "name": "Original + Cedar (black)", "image": "/assets/shop/lebanon-tee-original.jpg", "alt": "Sample mock-up of a black T-shirt with the full-colour RallyGood logo, a green cedar tree and the words Lebanon Drop." },
+        { "id": "limited", "name": "Limited colourway (off-white)", "image": "/assets/shop/lebanon-tee-limited.jpg", "alt": "Sample mock-up of an off-white T-shirt with a red and green RallyGood logo, a green cedar tree and the words Lebanon Drop." },
+        { "id": "one-colour", "name": "One-colour edition (green)", "image": "/assets/shop/lebanon-tee-one-colour.jpg", "alt": "Sample mock-up of a dark green T-shirt with a white RallyGood logo, a white cedar tree and the words Lebanon Drop." }
+      ],
+      "sizes": ["XS","S","M","L","XL","2XL","3XL"],
+      "sizeGuide": true,
+      "specs": [["Fit","Regular unisex fit"],["Fabric","100% cotton, approx. 180 gsm"],["Print","Print on chest, up to three colourways"],["Care","Machine wash at 30°C, inside out"]],
+      "costs": [["Production (blank + print)", 12.00],["Payment processing", 0.65],["Returns and defects reserve", 1.50]],
+      "made": "Pre-order only. Made to order in the UK after the pre-order window closes.",
+      "dispatch": "Pre-order window and dispatch dates to be confirmed.",
+      "funding": "Amount allocated to the Lebanon Drop: to be confirmed before orders open. No Lebanon Drop is open, no delivery partner has been chosen and nothing has been raised. RallyGood's purpose is the relief of people in need; this item is not a statement on any political issue.",
+      "dropEdition": true,
+      "checkoutUrl": "",
+      "detailsStatus": "sample",
+      "imagesStatus": "sample"
+    },
+    {
+      "slug": "palestine-drop-tee",
+      "group": "drop",
+      "name": "Palestine Drop T-shirt",
+      "tag": "Drop edition",
+      "price": 30,
+      "blurb": "Limited-edition tee with an olive-sprig motif, for a future Palestine Drop.",
+      "description": ["A limited-edition T-shirt carrying the RallyGood mark and an olive-sprig motif, designed to accompany a future Palestine Drop.", "Three colourways: Original + Olive, Limited colourway and One-colour edition."],
+      "colourways": [
+        { "id": "original", "name": "Original + Olive (black)", "image": "/assets/shop/palestine-tee-original.jpg", "alt": "Sample mock-up of a black T-shirt with the full-colour RallyGood logo, an olive sprig and the words Palestine Drop." },
+        { "id": "limited", "name": "Limited colourway (off-white)", "image": "/assets/shop/palestine-tee-limited.jpg", "alt": "Sample mock-up of an off-white T-shirt with a green and red RallyGood logo, an olive sprig and the words Palestine Drop." },
+        { "id": "one-colour", "name": "One-colour edition (green)", "image": "/assets/shop/palestine-tee-one-colour.jpg", "alt": "Sample mock-up of a dark green T-shirt with a white RallyGood logo, a white olive sprig and the words Palestine Drop." }
+      ],
+      "sizes": ["XS","S","M","L","XL","2XL","3XL"],
+      "sizeGuide": true,
+      "specs": [["Fit","Regular unisex fit"],["Fabric","100% cotton, approx. 180 gsm"],["Print","Print on chest, up to three colourways"],["Care","Machine wash at 30°C, inside out"]],
+      "costs": [["Production (blank + print)", 12.00],["Payment processing", 0.65],["Returns and defects reserve", 1.50]],
+      "made": "Pre-order only. Made to order in the UK after the pre-order window closes.",
+      "dispatch": "Pre-order window and dispatch dates to be confirmed.",
+      "funding": "Amount allocated to the Palestine Drop: to be confirmed before orders open. No Palestine Drop is open, no delivery partner has been chosen and nothing has been raised. RallyGood's purpose is the relief of people in need; this item is not a statement on any political issue.",
+      "dropEdition": true,
+      "checkoutUrl": "",
+      "detailsStatus": "sample",
+      "imagesStatus": "sample"
+    },
+    {
+      "slug": "tote",
+      "group": "core",
+      "name": "RallyGood Everyday Tote",
+      "tag": "Tote",
+      "price": 20,
+      "blurb": "A natural-colour tote with a bold full-colour mark.",
+      "description": ["Carry a little good into your day. A natural-colour tote with a bold full-colour RallyGood mark, for everyday essentials, books and errands."],
+      "colourways": [
+        { "id": "natural", "name": "Natural", "image": "/assets/shop/tote.png", "alt": "Sample illustration of a natural-colour tote bag with a bold full-colour RallyGood logo." }
+      ],
+      "sizes": ["One size"],
+      "specs": [["Size","Approx. 38 cm wide × 42 cm tall"],["Handles","Approx. 60 cm long"],["Material","Cotton canvas, natural"],["Care","Machine wash at 30°C"]],
+      "costs": [["Production (blank + print)", 10.00],["Payment processing", 0.50],["Returns and defects reserve", 0.60]],
+      "made": "Printed to order in the UK.",
+      "dispatch": "Dispatched within 5–10 working days.",
+      "funding": "The amount left after direct costs supports RallyGood's charitable work generally, and covers design, overheads and tax. It is not allocated to a specific Drop.",
+      "checkoutUrl": "",
+      "detailsStatus": "sample",
+      "imagesStatus": "sample"
+    },
+    {
+      "slug": "pin",
+      "group": "small",
+      "name": "RallyGood Colour Pin",
+      "tag": "Pin",
+      "price": 10,
+      "blurb": "An enamel pin that brings the four-colour symbol to jackets, bags and lanyards.",
+      "description": ["A small mark with a bright personality. An enamel-style pin showing the four-colour RallyGood symbol."],
+      "colourways": [
+        { "id": "colour", "name": "Full colour", "image": "/assets/shop/pin.png", "alt": "Sample illustration of a small enamel-style pin badge showing the four-colour RallyGood symbol." }
+      ],
+      "sizes": ["One size"],
+      "specs": [["Size","Approx. 25 mm"],["Finish","Soft enamel, metal backing"],["Fastening","Butterfly clutch"],["Safety","Not a toy. Small parts, not suitable for young children."]],
+      "costs": [["Production (pin)", 3.22],["Packing", 0.40],["Payment processing", 0.35],["Returns and defects reserve", 0.30]],
+      "made": "Made in a small batch and held in stock in the UK.",
+      "dispatch": "Dispatched within 2–3 working days.",
+      "funding": "The amount left after direct costs supports RallyGood's charitable work generally, and covers design, overheads and tax. It is not allocated to a specific Drop.",
+      "checkoutUrl": "",
+      "detailsStatus": "sample",
+      "imagesStatus": "sample"
+    },
+    {
+      "slug": "stickers",
+      "group": "small",
+      "name": "RallyGood Sticker Pack",
+      "tag": "Stickers",
+      "price": 5,
+      "blurb": "Four designs mixing the RallyGood symbol with upbeat typography.",
+      "description": ["Four little ways to rally good. A set of four stickers mixing the RallyGood symbol with upbeat typographic designs."],
+      "colourways": [
+        { "id": "pack", "name": "Four designs", "image": "/assets/shop/stickers.png", "alt": "Sample illustration of a pack of four RallyGood stickers." }
+      ],
+      "sizes": ["One pack"],
+      "specs": [["Contents","4 stickers, mixed designs"],["Size","Approx. 6–8 cm each"],["Material","Vinyl, water-resistant"]],
+      "costs": [["Production (stickers + sleeve)", 1.20],["Payment processing", 0.28],["Returns and defects reserve", 0.15]],
+      "made": "Printed in a small batch and held in stock in the UK.",
+      "dispatch": "Dispatched within 2–3 working days.",
+      "funding": "The amount left after direct costs supports RallyGood's charitable work generally, and covers design, overheads and tax. It is not allocated to a specific Drop.",
+      "checkoutUrl": "",
+      "detailsStatus": "sample",
+      "imagesStatus": "sample"
+    }
+  ]
+}

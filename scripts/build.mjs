@@ -2,12 +2,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadShop } from './shop.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(root, 'src');
 const dist = path.join(root, 'dist');
 const cfg = JSON.parse(fs.readFileSync(path.join(root, 'config/site.config.json'), 'utf8'));
 const registered = cfg.registrationStatus === 'registered';
+const shopMod = loadShop(root, cfg);
 
 const regLine = registered
   ? `Registered charity in England and Wales, no. ${cfg.charityNumber}`
@@ -46,6 +48,11 @@ const tokens = {
     ? 'Sign-ups and emails are handled for us by beehiiv, our email newsletter service, which stores your email address and sends our updates on our behalf.'
     : 'Until our email newsletter service is set up, sign-up requests arrive as an email to us and we add you to our list manually.',
 };
+tokens.SHOP_HOME = shopMod.homeBlock();
+tokens.SHOP_LABEL = shopMod.live ? 'Shop' : 'Shop (coming soon)';
+tokens.SHOP_STATUS = shopMod.live
+  ? 'open. Buying merchandise is not a donation; every product page shows where the money goes. See the <a class="text-link" href="/shop.html">shop</a>.'
+  : 'not open. Nothing is on sale. See the <a class="text-link" href="/shop.html">planned range</a>.';
 const fill = (s, extra = {}) =>
   s.replace(/\{\{([A-Z_]+)\}\}/g, (m, k) => (k in extra ? extra[k] : k in tokens ? tokens[k] : m));
 
@@ -67,6 +74,23 @@ const header = fs.readFileSync(path.join(src, 'partials/header.html'), 'utf8');
 const footer = fs.readFileSync(path.join(src, 'partials/footer.html'), 'utf8');
 const pages = [];
 
+function writePage(out, meta, content, navPath = out) {
+  const hdr = header.replace(new RegExp(`(href="/${navPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}")`), '$1 aria-current="page"');
+  const html = fill(layout, {
+    TITLE: meta.title === 'RallyGood' ? 'RallyGood – Small appeals. Real essentials. Clear proof.' : `${meta.title} – RallyGood`,
+    DESCRIPTION: meta.description,
+    PATH: out === 'index.html' ? '' : out,
+    ROBOTS: meta.robots || 'index,follow',
+    BODYCLASS: meta.bodyclass || '',
+    HEADER: hdr,
+    FOOTER: footer,
+    CONTENT: content,
+  });
+  fs.mkdirSync(path.dirname(path.join(dist, out)), { recursive: true });
+  fs.writeFileSync(path.join(dist, out), fill(html));
+  if ((meta.robots || '').startsWith('noindex') === false) pages.push(out);
+}
+
 for (const e of fs.readdirSync(src, { withFileTypes: true })) {
   const p = path.join(src, e.name);
   if (e.name === 'layout.html' || e.name === 'partials') continue;
@@ -77,25 +101,27 @@ for (const e of fs.readdirSync(src, { withFileTypes: true })) {
     const m = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     if (!m) throw new Error(`${e.name}: missing front matter`);
     const meta = Object.fromEntries(m[1].split('\n').map((l) => { const i = l.indexOf(':'); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
-    const out = e.name.replace(/\.page$/, '.html');
-    const hdr = header.replace(new RegExp(`(href="/${out}")`), '$1 aria-current="page"');
-    const html = fill(layout, {
-      TITLE: meta.title === 'RallyGood' ? 'RallyGood – Small appeals. Real essentials. Clear proof.' : `${meta.title} – RallyGood`,
-      DESCRIPTION: meta.description,
-      PATH: out === 'index.html' ? '' : out,
-      ROBOTS: meta.robots || 'index,follow',
-      BODYCLASS: meta.bodyclass || '',
-      HEADER: hdr,
-      FOOTER: footer,
-      CONTENT: m[2],
-    });
-    fs.writeFileSync(path.join(dist, out), fill(html));
-    if ((meta.robots || '').startsWith('noindex') === false) pages.push(out);
+    writePage(e.name.replace(/\.page$/, '.html'), meta, m[2]);
   } else if (textExt.has(ext)) {
     fs.writeFileSync(path.join(dist, e.name), fill(fs.readFileSync(p, 'utf8')));
   } else {
     fs.copyFileSync(p, path.join(dist, e.name));
   }
+}
+
+// Shop pages (generated from config/shop.json)
+writePage('shop.html', {
+  title: shopMod.live ? 'Shop' : 'Shop (coming soon)',
+  description: shopMod.live
+    ? 'RallyGood merchandise, with the costs and what is left for our charitable work shown on every product page.'
+    : 'RallyGood merchandise is being set up and is not on sale yet. See the planned range and what we will disclose about where the money goes.',
+}, shopMod.indexContent());
+for (const prod of shopMod.shop.products) {
+  writePage(`shop/${prod.slug}.html`, {
+    title: prod.name,
+    description: `${prod.blurb}${shopMod.live ? '' : ' Not on sale yet: sample details.'}`,
+    robots: shopMod.live ? 'index,follow' : 'noindex,follow',
+  }, shopMod.productContent(prod), 'shop.html');
 }
 
 // sitemap from built pages

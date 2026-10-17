@@ -5,7 +5,7 @@ from playwright.sync_api import sync_playwright
 
 base = sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8099'
 out = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else '/tmp/claude-0/shots'); out.mkdir(exist_ok=True, parents=True)
-pages = ['/', '/how-it-works.html', '/drops.html', '/nature-wellbeing.html', '/shop.html', '/transparency.html', '/get-involved.html', '/about.html', '/contact.html', '/privacy.html', '/safeguarding.html', '/nope.html']
+pages = ['/', '/how-it-works.html', '/drops.html', '/nature-wellbeing.html', '/shop.html', '/shop/core-tee.html', '/shop/lebanon-drop-tee.html', '/shop/palestine-drop-tee.html', '/shop/tote.html', '/shop/pin.html', '/shop/stickers.html', '/transparency.html', '/get-involved.html', '/about.html', '/contact.html', '/privacy.html', '/safeguarding.html', '/nope.html']
 problems = []
 checked = {}
 
@@ -61,6 +61,18 @@ with sync_playwright() as p:
     if pg.locator('.drop-card').count() != 1: problems.append('drops: Food filter')
     pg.goto(base + '/how-it-works.html'); pg.fill('#custom-amount', '100')
     if pg.inner_text('#project-share') != '£85.00' or pg.inner_text('#ops-share') != '£15.00': problems.append('split calc wrong')
+    # shop: grouped cards, product page colour switch, buy button disabled while in preview
+    pg.goto(base + '/shop.html')
+    if pg.locator('.shop-card').count() != 6: problems.append('shop: expected 6 product cards')
+    if pg.locator('.shop-group').count() != 3: problems.append('shop: expected 3 groups')
+    pg.goto(base + '/')
+    if pg.locator('#shop .shop-card').count() != 3: problems.append('home: expected 3 shop cards')
+    pg.goto(base + '/shop/lebanon-drop-tee.html')
+    first = pg.get_attribute('.product-main', 'src')
+    pg.select_option('#opt-colour', 'limited')
+    if pg.get_attribute('.product-main', 'src') == first: problems.append('shop: colour switch did not change image')
+    if not pg.is_disabled('.product-form button'): problems.append('shop: Buy merchandise should be disabled in preview')
+    if 'Buy merchandise' not in pg.inner_text('.product-form'): problems.append('shop: Buy merchandise button missing')
     # form: empty submit shows errors, valid submit builds mailto
     pg.goto(base + '/contact.html?topic=sponsor')
     if pg.input_value('#cf-topic') != 'sponsor': problems.append('topic prefill failed')

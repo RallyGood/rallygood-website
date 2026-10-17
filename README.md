@@ -25,6 +25,9 @@ Static multi-page site. Source in `src/`, built to `dist/` by `node scripts/buil
    - Cloudflare: SSL/TLS mode **Full**; optionally redirect `www` → apex with a Redirect Rule.
 4. Email (`info@rallygood.org.uk`): add MX records for whichever mailbox provider or Cloudflare Email Routing you use, plus SPF/DKIM/DMARC. The website only links to this address.
 
+## Shop
+The shop is generated from `config/shop.json` by `scripts/shop.mjs` (shop page, product pages, homepage block). It stays in preview (Buy merchandise disabled) until `shopStatus` is `"live"`; the build refuses that unless the charity is registered and every product is confirmed with a checkout link. See `OUTSTANDING.md` → Shop.
+
 ## Checks
 `python3 scripts/check.py http://localhost:8099` (needs Playwright) checks status codes, console errors, internal links/anchors, mailto addresses, horizontal overflow at desktop and 390px, nav, filters, split calculator and form validation. Serve `dist/` first: `cd dist && python3 -m http.server 8099`.
 
