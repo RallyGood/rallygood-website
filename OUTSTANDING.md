@@ -55,3 +55,4 @@ Everything is generated from `config/shop.json` (products, prices, costs, specs,
 - Unpublished drafts needing trustee input: `docs/templates/` (governance page, complaints policy, Drop and close-out templates, donation wording, partner due diligence). Decisions are listed in `docs/implementation/trustee-decision-brief.md`.
 - Google for Nonprofits / Ad Grants: wait for charity registration (`docs/implementation/google-for-nonprofits.md`).
 - Trustee decision brief: recommendations approved (reported by Raf 2026-10-18); next steps follow the order at the end of the brief.
+- Drop tee artwork approved by trustees (reported by Raf 2026-10-18). Tees remain in preview. To go live: supply the approved final artwork files, replace the sample specs/costs, then set `detailsStatus` and `imagesStatus` to `confirmed` per product (see Shop section).

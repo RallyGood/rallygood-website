@@ -39,7 +39,7 @@ Already decided (for the record): public split 85/15 (Raf, 2026-10-18; the older
 ## D. Merchandise (shop)
 | # | Decision | Recommendation |
 |---|---|---|
-| D1 | Country Drop tees (Lebanon, Palestine) | Trustees must approve artwork and wording; no such Drop or approved design exists. Consider removing them from preview until a real Drop exists, to avoid implying one |
+| D1 | Country Drop tees (Lebanon, Palestine) | **Artwork approved by trustees (reported by Raf, 2026-10-18); tees stay in the preview shop.** Still open: no such Drop exists, so the preview must keep saying nothing is on sale and these are sample designs; the shop's product images are mock-ups, so supply the approved final artwork files before `imagesStatus` can be set to confirmed; confirm the wording that the item is not a statement on any conflict |
 | D2 | Trading position and VAT | Accountant to confirm small-trading and VAT treatment **[advice]** |
 | D3 | Shop income vs the 85/15 split | Treat as separate and say so; confirm accounting |
 | D4 | Supplier, returns, delivery | Replace placeholder figures with the real supplier's terms |
