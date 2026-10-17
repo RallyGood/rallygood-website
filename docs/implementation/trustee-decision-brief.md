@@ -1,6 +1,8 @@
 # Trustee decision brief (2026-10-18)
 
-Purpose: every open decision I found that blocks launch, with options and a recommendation. Recommendations are mine and are for trustees to accept or change. This is not legal or financial advice; items marked **[advice]** should be checked with a solicitor, accountant or the regulator's current guidance, none of which I have re-read for this brief.
+**Status (2026-10-18, reported by Raf in chat): all recommendations in this brief were approved.** I have not seen minutes. Approval of a recommendation sets direction; items that depend on registration, a payment provider, advice or a named partner remain blocked until those exist. Items marked [advice] still need the professional check the brief names. Trustees should record the approval in their own minutes.
+
+Purpose: every open decision I found that blocks launch, with options and a recommendation. Recommendations were mine; trustees have approved them (see status above). This is not legal or financial advice; items marked **[advice]** should be checked with a solicitor, accountant or the regulator's current guidance, none of which I have re-read for this brief.
 
 Already decided (for the record): public split 85/15 (Raf, 2026-10-18; the older 98/2 figure was a mistake and the Financial Controls Policy's "85/2" is a typo, per `OUTSTANDING.md`); consent before any analytics; `donation_received` event kept separate from merchandise `purchase`; privacy wording reviewed by trustees (note PR #6 added IP address and topic, which trustees have not yet reviewed if it merged after their review).
 

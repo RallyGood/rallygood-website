@@ -54,3 +54,4 @@ Everything is generated from `config/shop.json` (products, prices, costs, specs,
 - Newsletter and cookie checks: not yet run live (`docs/templates/form-and-newsletter-test-plan.md`, section B).
 - Unpublished drafts needing trustee input: `docs/templates/` (governance page, complaints policy, Drop and close-out templates, donation wording, partner due diligence). Decisions are listed in `docs/implementation/trustee-decision-brief.md`.
 - Google for Nonprofits / Ad Grants: wait for charity registration (`docs/implementation/google-for-nonprofits.md`).
+- Trustee decision brief: recommendations approved (reported by Raf 2026-10-18); next steps follow the order at the end of the brief.
