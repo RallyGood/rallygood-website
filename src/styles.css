@@ -516,4 +516,6 @@ details p { color: var(--muted); margin: .7rem 0 0; }
 .consent-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
 .consent-btn { flex: 1 1 10rem; border: 2px solid var(--ink); background: var(--white); color: var(--ink); padding: .75rem 1rem; border-radius: 999px; font-weight: 900; }
 .consent-btn:hover, .consent-btn:focus-visible { background: var(--ink); color: var(--white); }
+.consent-btn-primary { background: var(--purple-dark); border-color: var(--purple-dark); color: var(--white); }
+.consent-btn-primary:hover, .consent-btn-primary:focus-visible { background: var(--ink); border-color: var(--ink); }
 .link-button { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; font: inherit; }
