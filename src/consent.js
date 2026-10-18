@@ -75,8 +75,8 @@
     banner.setAttribute('aria-labelledby', 'consent-title');
     banner.hidden = true;
     banner.innerHTML =
-      '<h2 id="consent-title" tabindex="-1">Analytics cookies</h2>' +
-      '<p>We would like to use Google Analytics to count visits and see which pages are useful. It only runs if you say yes. Nothing from Google loads if you say no, and saying no does not affect the rest of the site. You can change your choice at any time with “Cookie preferences” in the footer. <a class="text-link" href="/privacy.html">Privacy notice</a></p>' +
+      '<h2 id="consent-title" class="sr-only" tabindex="-1">Analytics cookies</h2>' +
+      '<p>We use analytics cookies to understand how visitors use this site. You can accept or reject non-essential cookies. <a class="text-link" href="/privacy.html">Cookie policy</a>.</p>' +
       '<p class="consent-state" id="consent-state" aria-live="polite"></p>' +
       '<div class="consent-actions"><button type="button" class="consent-btn consent-btn-primary" data-choice="accept">Yes, that’s fine</button><button type="button" class="consent-btn" data-choice="reject">No thanks</button></div>';
     document.body.appendChild(banner);
