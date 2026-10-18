@@ -36,7 +36,7 @@ with sync_playwright() as p:
     check('before choice: consent default denies all four signals', any(x[0:2] == ['consent', 'default'] and all(x[2][k] == 'denied' for k in ['analytics_storage', 'ad_storage', 'ad_user_data', 'ad_personalization']) for x in d), str(d))
     check('before choice: no config command queued', not any(x[0] == 'config' for x in d))
     check('before choice: no GA cookies', 'ga' not in pg.evaluate('document.cookie').lower())
-    check('before choice: both buttons present and equal class', pg.locator('#consent-banner .consent-btn').count() == 2)
+    check('before choice: both buttons present', pg.locator('#consent-banner .consent-btn').count() == 2)
     pg.evaluate("window.rgTrack && window.rgTrack('x')"); check('before choice: rgTrack sends nothing', 'event' not in dl(pg))
     # navigate without choosing: still no request
     pg.goto(base + '/about.html', wait_until='networkidle'); pg.wait_for_timeout(300)
@@ -88,7 +88,7 @@ with sync_playwright() as p:
     # 6. Keyboard: banner buttons reachable and operable
     ctx, hits = new_ctx(b); pg = ctx.new_page(); pg.goto(base + '/', wait_until='networkidle')
     pg.focus('[data-choice=reject]'); pg.keyboard.press('Enter'); pg.wait_for_timeout(200)
-    check('keyboard: Enter on Reject works', not visible(pg) and not hits); ctx.close()
+    check('keyboard: Enter on No thanks works', not visible(pg) and not hits); ctx.close()
 
     # 7. Privacy page and footer link present
     ctx, hits = new_ctx(b); pg = ctx.new_page(); pg.goto(base + '/privacy.html', wait_until='networkidle')

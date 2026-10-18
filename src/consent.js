@@ -76,9 +76,9 @@
     banner.hidden = true;
     banner.innerHTML =
       '<h2 id="consent-title" tabindex="-1">Analytics cookies</h2>' +
-      '<p>We would like to use Google Analytics to count visits and see which pages are useful. It only runs if you accept. Nothing from Google loads if you reject, and rejecting does not affect the rest of the site. You can change your choice at any time with “Cookie preferences” in the footer. <a class="text-link" href="/privacy.html">Privacy notice</a></p>' +
+      '<p>We would like to use Google Analytics to count visits and see which pages are useful. It only runs if you say yes. Nothing from Google loads if you say no, and saying no does not affect the rest of the site. You can change your choice at any time with “Cookie preferences” in the footer. <a class="text-link" href="/privacy.html">Privacy notice</a></p>' +
       '<p class="consent-state" id="consent-state" aria-live="polite"></p>' +
-      '<div class="consent-actions"><button type="button" class="consent-btn" data-choice="reject">Reject analytics</button><button type="button" class="consent-btn" data-choice="accept">Accept analytics</button></div>';
+      '<div class="consent-actions"><button type="button" class="consent-btn consent-btn-primary" data-choice="accept">Yes, that’s fine</button><button type="button" class="consent-btn" data-choice="reject">No thanks</button></div>';
     document.body.appendChild(banner);
     banner.addEventListener('click', function (e) {
       var b = e.target.closest('[data-choice]');
