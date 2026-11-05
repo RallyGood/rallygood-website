@@ -3,15 +3,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadShop } from './shop.mjs';
+import { loadContent, makeComponents } from './components.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(root, 'src');
-const dist = path.join(root, 'dist');
+const preview = process.env.PREVIEW === '1';
+const dist = path.join(root, process.env.DIST_DIR || (preview ? 'dist-preview' : 'dist'));
 const cfg = JSON.parse(fs.readFileSync(path.join(root, 'config/site.config.json'), 'utf8'));
 const registered = cfg.registrationStatus === 'registered';
 const ga4 = cfg.ga4MeasurementId || '';
 if (ga4 && !/^G-[A-Z0-9]{4,}$/.test(ga4)) throw new Error('ga4MeasurementId must look like G-XXXXXXXXXX');
 const shopMod = loadShop(root, cfg);
+const content = loadContent(root);
+const released = content.islamicGivingReleased;
 
 const regLine = registered
   ? `Registered charity in England and Wales, no. ${cfg.charityNumber}`
@@ -50,7 +54,7 @@ const tokens = {
   FORM_BUTTON: (cfg.web3formsAccessKey || cfg.contactFormEndpoint) ? 'Send message' : 'Open email to send',
   FORM_STATUS: (cfg.web3formsAccessKey || cfg.contactFormEndpoint)
     ? 'We will reply to the email address you give. If sending fails you can email us directly.'
-    : 'This form prepares an email in your own email app – nothing is sent until you press send there. If nothing opens, email us directly.',
+    : 'This form prepares an email in your own email app: nothing is sent until you press send there. If nothing opens, email us directly.',
   PRIVACY_FORM: cfg.web3formsAccessKey
     ? 'If you use the contact form, your name, email address, topic and message are sent to us through Web3Forms, a form service acting on our behalf, which delivers them to us by email. The email we receive also includes the IP address you sent it from. If you email us directly we receive the same details.'
     : cfg.contactFormEndpoint
@@ -82,6 +86,36 @@ const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const gbp0 = (n) => '\u00a3' + Number(n).toLocaleString('en-GB', { maximumFractionDigits: 0 });
 // Static copy of the example Drop cards (same markup as src/script.js) so the content exists without JavaScript.
 const dropsData = JSON.parse(fs.readFileSync(path.join(src, 'data/drops.json'), 'utf8'));
+const comp = makeComponents(content, esc, dropsData);
+Object.assign(tokens, {
+  ALLOC_CANONICAL: esc(content.allocation.canonical15),
+  ALLOC_DROP_PERCENT: String(content.allocation.dropPercent),
+  ALLOC_OPS_PERCENT: String(content.allocation.opsPercent),
+  ALLOCATION: comp.allocation,
+  ALLOCATION_COMPACT: comp.allocationCompact(false),
+  ALLOCATION_COMPACT_EXAMPLE: comp.allocationCompact(true),
+  ALLOCATION_POLICY: comp.policySection,
+  NOTICE_IN_DEV: comp.inDev,
+  NOTICE_CHANGE_CANCEL: esc(content.notices.changeOrCancel),
+  NOTICE_RAMADAN_ALLOC: esc(content.notices.ramadanAllocationTbc),
+  NAV_WAYS: comp.navWays,
+  DEMO_MONTHLY: comp.demoForm({ id: 'demo-monthly', mode: 'monthly', heading: 'Preview a monthly gift' }),
+  DEMO_SADAQAH: comp.demoForm({ id: 'demo-sadaqah', mode: 'sadaqah', heading: 'Preview a Sadaqah gift' }),
+  DEMO_FRIDAY: comp.demoForm({ id: 'demo-friday', mode: 'friday', heading: 'Preview a Friday gift' }),
+  DEMO_RAMADAN: comp.demoForm({ id: 'demo-ramadan', mode: 'ramadan', heading: 'Preview a daily Ramadan gift' }),
+  PREVIEW_BANNER: preview ? '<aside class="status-banner preview-banner" aria-label="Preview status">Private preview. Not the live site.</aside>' : '',
+});
+const ramadanStages = [
+  ['preparation', 'Preparation', 'Early funding gives us time to plan the next Ramadan campaign: confirming the need, partners, costs and delivery routes before the month begins.'],
+  ['before', 'Before Ramadan', 'The intended campaign plan and preparation progress will be shown here. Nothing has been published yet.'],
+  ['during', 'During Ramadan', 'Active campaign options, delivery updates and remaining needs will be shown here during Ramadan.'],
+  ['after', 'After Ramadan', 'What was funded, delivered and verified will be reported here after Ramadan.'],
+  ['between', 'Between campaigns', 'Past results stay published here, and the next campaign is introduced when it is ready.'],
+];
+tokens.RAMADAN_STAGES = '<ol class="stage-list">' + ramadanStages.map(([k, t, d]) => {
+  const cur = content.ramadanCampaignStage === k;
+  return `<li${cur ? ' aria-current="step"' : ''}><strong>${t}${cur ? ' (current stage)' : ''}</strong><span>${d}</span></li>`;
+}).join('') + '</ol>';
 tokens.DROP_CARDS = dropsData.map((d) => {
   const tag = d.category.toLowerCase().replace(/[^a-z0-9]/g, '');
   return '<article class="drop-card" data-category="' + esc(d.category) + '">' +
@@ -140,13 +174,17 @@ function jsonLd(out, title, crumbs) {
   return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c')}</script>`;
 }
 
-function writePage(out, meta, content, navPath = out) {
-  const hdr = header.replace(new RegExp(`(href="/${navPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}")`), '$1 aria-current="page"');
+const WAYS_PAGES = new Set(['drops.html', 'give-monthly.html', 'islamic-giving.html']);
+function writePage(out, meta, content, navPath = out, navMode = 'page') {
+  const esc2 = navPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  let hdr = header.replace('{{NAV_WAYS}}', tokens.NAV_WAYS).replace(new RegExp(`(href="/${esc2}")`, 'g'), `$1 aria-current="${navMode}"`);
+  if (WAYS_PAGES.has(navPath)) hdr = hdr.replace('class="nav-dropdown-toggle"', 'class="nav-dropdown-toggle is-current"');
   const html = fill(layout, {
-    TITLE: meta.title === 'RallyGood' ? 'RallyGood – Small appeals. Real essentials. Clear proof.' : `${meta.title} – RallyGood`,
+    TITLE: meta.title === 'RallyGood' ? 'RallyGood - Small appeals. Real essentials. Clear proof.' : `${meta.title} - RallyGood`,
     DESCRIPTION: meta.description,
     PATH: out === 'index.html' ? '' : out,
-    ROBOTS: meta.robots || 'index,follow',
+    ROBOTS: preview ? 'noindex,nofollow' : (meta.robots || 'index,follow'),
+    CANONICAL: preview ? '' : `<link rel="canonical" href="${cfg.siteUrl}/${out === 'index.html' ? '' : out}">`,
     BODYCLASS: meta.bodyclass || '',
     HEADER: hdr,
     FOOTER: footer,
@@ -155,16 +193,17 @@ function writePage(out, meta, content, navPath = out) {
     OG_IMAGE_W: String(meta.image ? imageSize(path.join(src, meta.image))[0] : CARD_W),
     OG_IMAGE_H: String(meta.image ? imageSize(path.join(src, meta.image))[1] : CARD_H),
     OG_IMAGE_ALT: esc(meta.imageAlt || 'RallyGood: Small appeals. Real essentials. Clear proof.'),
-    JSONLD: jsonLd(out, meta.title, out === 'index.html' || out === '404.html' ? [['Home', '']] : out.startsWith('shop/') ? [['Home', ''], ['Shop', 'shop.html'], [meta.title, out]] : [['Home', ''], [meta.title, out]]),
+    JSONLD: jsonLd(out, meta.title, out === 'index.html' || out === '404.html' ? [['Home', '']] : out.startsWith('shop/') ? [['Home', ''], ['Shop', 'shop.html'], [meta.title, out]] : out.startsWith('islamic-giving/') ? [['Home', ''], ['Islamic Giving', 'islamic-giving.html'], [meta.title, out]] : [['Home', ''], [meta.title, out]]),
   });
   fs.mkdirSync(path.dirname(path.join(dist, out)), { recursive: true });
   fs.writeFileSync(path.join(dist, out), fill(html));
-  if ((meta.robots || '').startsWith('noindex') === false) pages.push(out);
+  if (!preview && (meta.robots || '').startsWith('noindex') === false) pages.push(out);
 }
 
 for (const e of fs.readdirSync(src, { withFileTypes: true })) {
   const p = path.join(src, e.name);
-  if (e.name === 'layout.html' || e.name === 'partials') continue;
+  if (e.name === 'layout.html' || e.name === 'partials' || e.name === 'islamic') continue;
+  if (preview && (e.name === 'CNAME' || e.name === 'robots.txt')) continue;
   if (e.isDirectory()) { copyDir(p, path.join(dist, e.name)); continue; }
   const ext = path.extname(e.name);
   if (ext === '.page') {
@@ -177,6 +216,23 @@ for (const e of fs.readdirSync(src, { withFileTypes: true })) {
     fs.writeFileSync(path.join(dist, e.name), fill(fs.readFileSync(p, 'utf8')));
   } else {
     fs.copyFileSync(p, path.join(dist, e.name));
+  }
+}
+
+// Islamic Giving pages live in src/islamic/. They are built ONLY when the release flag is true.
+// When false nothing from that folder is read into the output, so no page, link or text can leak.
+function parsePage(file) {
+  const raw = fs.readFileSync(file, 'utf8');
+  const m = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!m) throw new Error(`${file}: missing front matter`);
+  const meta = Object.fromEntries(m[1].split('\n').map((l) => { const i = l.indexOf(':'); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
+  return { meta, body: m[2] };
+}
+if (released) {
+  for (const f of fs.readdirSync(path.join(src, 'islamic')).filter((n) => n.endsWith('.page'))) {
+    const { meta, body } = parsePage(path.join(src, 'islamic', f));
+    if (!meta.out) throw new Error(`${f}: front matter needs out:`);
+    writePage(meta.out, meta, body, meta.out === 'islamic-giving.html' ? 'islamic-giving.html' : 'islamic-giving.html', meta.out === 'islamic-giving.html' ? 'page' : 'true');
   }
 }
 
@@ -195,9 +251,12 @@ for (const prod of shopMod.shop.products) {
   }, shopMod.productContent(prod), 'shop.html');
 }
 
-// sitemap from built pages
+// sitemap from built pages (none for a private preview)
+if (preview) fs.writeFileSync(path.join(dist, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+else {
 const urls = pages.map((f) => `  <url><loc>${cfg.siteUrl}/${f === 'index.html' ? '' : f}</loc></url>`).join('\n');
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+}
 
 // Safety gate: the placeholder number must never reach the public output while pending.
 if (!registered) {
@@ -207,4 +266,16 @@ if (!registered) {
     if (fs.readFileSync(f, 'utf8').includes(cfg.charityNumber)) throw new Error(`Charity number placeholder leaked into ${f}`);
   }
 }
-console.log(`Built ${pages.length} pages to dist/ (registration: ${cfg.registrationStatus})`);
+// Release gate: while the flag is false, no built file may mention the Islamic Giving content at all.
+// Zakat is outside this build in every state.
+{
+  const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+  const hidden = /islamic|sadaqah|friday rally|ramadan|\briba\b|kaffarah/i;
+  for (const f of walk(dist)) {
+    if (!textExt.has(path.extname(f))) continue;
+    const t = fs.readFileSync(f, 'utf8');
+    if (/zakat|zakah|zakāt/i.test(t)) throw new Error(`Zakat is outside this build but appears in ${f}`);
+    if (!released && hidden.test(t)) throw new Error(`Islamic Giving content leaked into ${f} while islamicGivingReleased is false`);
+  }
+}
+console.log(`Built ${pages.length} pages to ${path.basename(dist)}/ (registration: ${cfg.registrationStatus})`);

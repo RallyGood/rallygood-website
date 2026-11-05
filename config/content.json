@@ -1,0 +1,39 @@
+{
+  "_notes": {
+    "purpose": "Shared content source. Pages and components read from here so wording and figures never drift. Edit here, not in individual pages.",
+    "islamicGivingReleased": "Release flag. false = the Islamic Giving navigation item, hub and every child page are excluded from the build and sitemap, and nothing else on the site mentions them. Release is a deliberate change by Raf on or after the go-live date: set this to true and push. The date below is recorded for reference only; it is NOT checked in the browser or at build time.",
+    "previewOverride": "A private preview build may force the flag with PREVIEW=1 ISLAMIC_GIVING_RELEASED=true node scripts/build.mjs. The override is ignored unless PREVIEW=1 is also set."
+  },
+  "islamicGivingReleased": false,
+  "islamicGivingGoLive": "2027-02-01",
+  "islamicGivingGoLiveStatus": "Provisional. One week before Ramadan 2027. Trustees to confirm.",
+  "ramadanCampaignStage": "preparation",
+  "allocation": {
+    "dropPercent": 85,
+    "opsPercent": 15,
+    "heading": "Your donation. Real help. Clear proof.",
+    "intro": "Your donation funds practical essentials and the work needed to get them to people who need them. Here is how we plan to allocate a standard Drop donation.",
+    "dropLabel": "Funding the Drop",
+    "opsLabel": "Fundraising, operations and delivery support",
+    "dropText": "Funds the practical essentials and delivery costs set out in each Drop's budget.",
+    "canonical15": "15% supports the work needed to get your help where it is intended and show you what was delivered. This includes fundraising and general operating costs.",
+    "sharedPurpose": "Two parts of one purpose: getting practical help to people who need it.",
+    "specialistNote": "Specialist giving routes have separate policies.",
+    "supportingNote": "Planned standard allocation. Specialist giving routes have separate policies.",
+    "policyLinkText": "Read our allocation policy",
+    "policyHref": "/transparency.html#allocation-policy",
+    "dropsLinkText": "Explore planned Drops",
+    "dropsHref": "/drops.html",
+    "exampleAmount": 25
+  },
+  "notices": {
+    "demoBanner": "Demonstration only. No payment is taken.",
+    "demoSubmit": "Preview confirmation",
+    "demoConfirmTitle": "Demonstration preview",
+    "demoConfirmBody": "This is a demonstration. Nothing has been set up, no payment was taken and nothing was sent or saved.",
+    "inDevelopment": "Being developed. Not currently available.",
+    "changeOrCancel": "Changing or cancelling a monthly gift: terms will be confirmed before launch.",
+    "ramadanAllocationTbc": "Allocation for this campaign to be confirmed."
+  },
+  "exampleAmounts": [5, 10, 25, 50]
+}

@@ -14,3 +14,7 @@ jobs:
           node-version: 22
       - run: node scripts/build.mjs
       - run: node scripts/ci-check.mjs
+      - name: Preview build (Islamic Giving visible) must also pass
+        run: |
+          PREVIEW=1 ISLAMIC_GIVING_RELEASED=true node scripts/build.mjs
+          PREVIEW=1 ISLAMIC_GIVING_RELEASED=true node scripts/ci-check.mjs

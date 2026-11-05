@@ -1,0 +1,25 @@
+---
+out: islamic-giving/give-sadaqah.html
+title: Give Sadaqah
+description: Voluntary charity, given in any amount at any time. A demonstration of giving towards approved RallyGood Drops. No payment is taken.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow"><a class="text-link" href="/islamic-giving.html">Islamic Giving</a></p>
+        <h1>Give Sadaqah</h1>
+        <p class="lead-small">Voluntary charity, given in any amount at any time. Support approved Drops or our rolling essentials fund.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell donate-grid">
+        <div>
+          <h2>Choose where your gift would go.</h2>
+          <p class="lead-small">Pick an example Drop or the rolling essentials fund and preview what a gift would look like. RallyGood is not accepting donations yet.</p>
+          <div class="top-gap">{{ALLOCATION_COMPACT}}</div>
+        </div>
+        <div>
+          {{DEMO_SADAQAH}}
+        </div>
+      </div>
+    </section>

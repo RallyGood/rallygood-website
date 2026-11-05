@@ -1,0 +1,31 @@
+---
+out: islamic-giving/friday-rally.html
+title: Friday Rally
+description: Give every Friday. A demonstration of weekly giving to a rolling essentials fund across approved RallyGood Drops. No payment is taken.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow"><a class="text-link" href="/islamic-giving.html">Islamic Giving</a></p>
+        <h1>Friday Rally</h1>
+        <p class="lead-small">Give every Friday.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell donate-grid">
+        <div>
+          <h2>A small gift, every Friday.</h2>
+          <p class="lead-small">Recurring Friday donations support a rolling essentials fund, allocated across approved Drops using the standard allocation.</p>
+          <ul class="plain-list">
+            <li><strong>Choose an amount:</strong> pick an example amount or enter your own in the demonstration.</li>
+            <li><strong>Intended schedule:</strong> weekly, on Fridays. The start date is to be confirmed.</li>
+            <li><strong>Timing:</strong> when a payment is taken is not a promise of same-day aid delivery.</li>
+          </ul>
+          <p class="lead-small"><a class="text-link" href="/contact.html?topic=updates">Get updates</a> or read <a class="text-link" href="/transparency.html#allocation-policy">our allocation policy</a>.</p>
+          <div class="top-gap">{{ALLOCATION_COMPACT}}</div>
+        </div>
+        <div>
+          {{DEMO_FRIDAY}}
+        </div>
+      </div>
+    </section>

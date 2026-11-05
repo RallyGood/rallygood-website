@@ -1,19 +1,41 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.add('js');
+
   /* ---------- Navigation ---------- */
   var toggle = document.querySelector('.nav-toggle');
   var menu = document.querySelector('#nav-menu');
+  var dropdowns = Array.prototype.slice.call(document.querySelectorAll('.nav-dropdown')).map(function (d) {
+    var btn = d.querySelector('.nav-dropdown-toggle');
+    var list = d.querySelector('.nav-dropdown-menu');
+    var api = {
+      el: d, btn: btn,
+      isOpen: function () { return btn.getAttribute('aria-expanded') === 'true'; },
+      set: function (open) { btn.setAttribute('aria-expanded', String(open)); list.hidden = !open; }
+    };
+    api.set(false);
+    btn.addEventListener('click', function () { api.set(!api.isOpen()); });
+    d.addEventListener('focusout', function (e) { if (api.isOpen() && e.relatedTarget && !d.contains(e.relatedTarget)) api.set(false); });
+    return api;
+  });
+  document.addEventListener('click', function (e) { dropdowns.forEach(function (d) { if (d.isOpen() && !d.el.contains(e.target)) d.set(false); }); });
   function setMenu(open) {
     menu.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (!open) dropdowns.forEach(function (d) { d.set(false); });
   }
   if (toggle && menu) {
     toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMenu(false); toggle.focus(); } });
   }
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var openDd = dropdowns.filter(function (d) { return d.isOpen(); })[0];
+    if (openDd) { openDd.set(false); openDd.btn.focus(); return; }
+    if (toggle && menu) { setMenu(false); toggle.focus(); }
+  });
 
   var gbp0 = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
   var gbp2 = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -89,29 +111,49 @@
     if (colourSel) colourSel.addEventListener('change', function () { showColour(colourSel.value); });
   }
 
-  /* ---------- 85/15 illustration ---------- */
-  var split = document.querySelector('[data-split]');
-  if (split) {
-    var input = split.querySelector('#custom-amount');
-    var proj = split.querySelector('#project-share');
-    var ops = split.querySelector('#ops-share');
-    var btns = split.querySelectorAll('.amount-grid button');
-    var update = function () {
-      var amt = Math.max(0, Number(input.value) || 0);
-      var opsPence = Math.round(amt * 100 * 0.15);
-      var projPence = Math.round(amt * 100) - opsPence;
-      proj.textContent = gbp2.format(projPence / 100);
-      ops.textContent = gbp2.format(opsPence / 100);
-    };
-    btns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        btns.forEach(function (x) { x.classList.remove('active'); });
-        b.classList.add('active'); input.value = b.dataset.amount; update();
+  /* ---------- Donation allocation: highlight a part (both explanations stay visible) ---------- */
+  document.querySelectorAll('[data-alloc]').forEach(function (root) {
+    var btns = root.querySelectorAll('.alloc-btn');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var on = btn.getAttribute('aria-pressed') !== 'true';
+        btns.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', String(on));
+        if (on) root.setAttribute('data-selected', btn.getAttribute('data-seg')); else root.removeAttribute('data-selected');
       });
     });
-    input.addEventListener('input', function () { btns.forEach(function (x) { x.classList.remove('active'); }); update(); });
-    update();
-  }
+  });
+
+  /* ---------- Demonstration giving forms: nothing is stored, sent or tracked ---------- */
+  document.querySelectorAll('[data-demo]').forEach(function (root) {
+    var custom = root.querySelector('[data-demo-custom]');
+    var btns = root.querySelectorAll('.demo-amount');
+    var err = root.querySelector('.demo-error');
+    var conf = root.querySelector('.demo-confirm');
+    var res = root.querySelector('[data-demo-result]');
+    var sel = root.querySelector('[data-demo-purpose]');
+    var stat = root.querySelector('.demo-summary-static');
+    var per = root.getAttribute('data-per') || '';
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (x) { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
+        b.classList.add('active'); b.setAttribute('aria-pressed', 'true');
+        custom.value = b.getAttribute('data-amount'); err.hidden = true; conf.hidden = true;
+      });
+    });
+    custom.addEventListener('input', function () {
+      btns.forEach(function (x) { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
+      err.hidden = true; conf.hidden = true;
+    });
+    if (sel) sel.addEventListener('change', function () { conf.hidden = true; });
+    root.querySelector('[data-demo-submit]').addEventListener('click', function () {
+      var amt = parseFloat(custom.value);
+      if (!(amt >= 1)) { err.hidden = false; conf.hidden = true; custom.focus(); return; }
+      err.hidden = true;
+      res.textContent = 'Amount: ' + gbp2.format(amt) + per + '. ' + (stat ? stat.textContent + ' ' : '') + (sel ? 'Purpose: ' + sel.value + '.' : '');
+      conf.hidden = false;
+    });
+  });
 
   /* ---------- Contact form (posts to the configured endpoint, else opens the visitor's email app) ---------- */
   var form = document.querySelector('#contact-form');
@@ -140,7 +182,7 @@
       }
       var endpoint = '{{CONTACT_ENDPOINT}}';
       var subject = 'RallyGood website: ' + topics[form.elements.topic.value];
-      var body = msg + '\n\n—\n' + name + '\n' + email;
+      var body = msg + '\n\n-\n' + name + '\n' + email;
       var statusEl = document.getElementById('cf-status');
       if (endpoint) {
         if (form.elements._gotcha && form.elements._gotcha.value) return;
@@ -149,7 +191,7 @@
         fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ access_key: '{{WEBFORMS_KEY}}', name: name, email: email, topic: topics[form.elements.topic.value], message: msg, subject: subject, _subject: subject, botcheck: '' }) })
           .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok || j.success === false) throw new Error(r.status); }); })
-            .then(function () { if (window.rgTrack) window.rgTrack('contact_form_submit', { topic: sentTopic }); form.reset(); statusEl.textContent = 'Thank you – your message has been sent. We will reply to the email address you gave.'; })
+            .then(function () { if (window.rgTrack) window.rgTrack('contact_form_submit', { topic: sentTopic }); form.reset(); statusEl.textContent = 'Thank you. Your message has been sent. We will reply to the email address you gave.'; })
           .catch(function () { statusEl.innerHTML = 'Sorry, that did not send. Please email <a class="text-link" href="mailto:' + EMAIL + '">' + EMAIL + '</a> directly.'; })
           .then(function () { btn.disabled = false; });
         return;

@@ -1,0 +1,26 @@
+---
+title: Give Monthly
+description: A planned way to give monthly and keep the next RallyGood Drop moving. This is a demonstration only. RallyGood is not yet accepting donations.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Give Monthly</p>
+        <h1>Keep the next Drop moving.</h1>
+        <p class="lead-small">Give monthly to help fund practical essentials across approved RallyGood Drops.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell donate-grid">
+        <div>
+          <h2>One rolling fund. Approved Drops.</h2>
+          <p class="lead-small">Monthly donations support a rolling essentials fund. They are allocated across approved Drops rather than reserved for a specific campaign.</p>
+          <p class="lead-small"><strong>This is planned giving, not an active service.</strong> RallyGood is not accepting donations yet, and the form on this page is a demonstration.</p>
+          <p class="small-print">{{NOTICE_CHANGE_CANCEL}}</p>
+          <div class="top-gap">{{ALLOCATION_COMPACT}}</div>
+        </div>
+        <div>
+          {{DEMO_MONTHLY}}
+        </div>
+      </div>
+    </section>
