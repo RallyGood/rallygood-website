@@ -47,6 +47,21 @@ description: RallyGood is a charity in development that will rally people around
       </div>
     </section>
 
+    <section class="section" id="key-facts" aria-labelledby="key-facts-title">
+      <div class="shell">
+        <div class="status-card">
+          <h2 id="key-facts-title">Key facts about RallyGood</h2>
+          <ul class="plain-list">
+            <li><strong>Status:</strong> a new charity. Registration is pending and we are not accepting donations. We have no bank account, delivery partner or funds yet, and no Drop has run.</li>
+            <li><strong>Where we work:</strong> one focus country each year, with Lebanon intended for 2027, and a small reserve for major emergencies elsewhere. <a class="text-link" href="where-we-work.html">Where we work</a></li>
+            <li><strong>Two strands of work:</strong> international relief through Drops, and local nature and wellbeing sessions in the UK. <a class="text-link" href="nature-wellbeing.html">Nature &amp; wellbeing</a></li>
+            <li><strong>Non-clinical:</strong> our wellbeing sessions offer no diagnosis, counselling or medical treatment.</li>
+            <li><strong>Before any money moves:</strong> trustees assess and approve a verified partner, sign a written agreement and publish a close-out report. <a class="text-link" href="transparency.html">What we publish</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
 {{ALLOCATION}}
 
     <section class="section" id="what">
