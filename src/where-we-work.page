@@ -1,0 +1,59 @@
+---
+title: Where we work
+description: Where RallyGood plans to work: one focus country each year, a small responsive reserve for major emergencies, and how we decide before any Drop opens.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Where we work</p>
+        <h1>Focused, so we can do it properly.</h1>
+        <p class="lead-small">RallyGood is a new charity run by trustees who want every Drop to be verified, costed and reported. To keep our work careful, we plan to concentrate on one country at a time. <strong>No Drop is open, no partner has been appointed and no funds have been raised, held or spent.</strong></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell prose-grid">
+        <div class="prose">
+          <h2>One focus country each year</h2>
+          <p>Each year, trustees choose one focus country for our Drops, based on documented need and on whether a suitable, verified partner is available. Trustees review that choice every year and publish it here.</p>
+          <p><strong>Our intended focus for 2027 is Lebanon.</strong> Published humanitarian reporting, including from the United Nations Office for the Coordination of Humanitarian Affairs (OCHA), describes continuing needs linked to displacement and return, including food, water and shelter. That reporting is background evidence of need. It is not confirmation of a specific RallyGood project or group of beneficiaries.</p>
+
+          <h2>A small reserve for major emergencies</h2>
+          <p>If a major emergency happens somewhere else, trustees may decide to open a Drop outside the focus country. They will only do this through a verified partner and within a limit they set in advance. Being able to respond does not mean we will respond to everything.</p>
+
+          <h2>Countries we may support in future</h2>
+          <p>The countries below are areas where we may support relief in future. They are a list to choose from, not a timetable or a promise, and we will not work in any of them until a partner has been assessed and approved.</p>
+          <ul>
+            <li>Lebanon (intended focus for 2027)</li>
+            <li>Sudan</li>
+            <li>Occupied Palestinian Territories</li>
+            <li>Ethiopia</li>
+            <li>Haiti</li>
+            <li>Burma</li>
+            <li>Democratic Republic of the Congo</li>
+            <li>Mali</li>
+            <li>Burkina Faso</li>
+          </ul>
+
+          <h2>Before any Drop opens</h2>
+          <p>Before approving a Drop or releasing funds, trustees carry out proportionate checks on the partner's identity, legal status, delivery capacity, financial controls and safeguarding, and consider sanctions and security risks. We also obtain current, location-specific information from the partner and compare it with independent sources. We have not yet carried out our own overseas field assessment or agreed a delivery partnership, and we will not commit funds until a specific need and a suitable partner have been assessed and approved.</p>
+          <p>Every Drop is paid to the partner under a written agreement. Partners report back with financial records and delivery evidence, and we publish a close-out report that separates verified results from estimates. See <a class="text-link" href="how-it-works.html">how it works</a> and <a class="text-link" href="transparency.html">what we will publish</a>.</p>
+
+          <h2>What we do not do</h2>
+          <p>RallyGood does not run its own operations overseas. We do not provide clinical treatment or take on major infrastructure projects, and we do not make cash grants to individuals. At the start we plan to give grants to organisations only.</p>
+          <p>Our local work in the UK is separate from our international Drops. It is described on our <a class="text-link" href="nature-wellbeing.html">nature and wellbeing page</a>.</p>
+        </div>
+        <aside class="prose-aside">
+          <div class="dignity-card">
+            <strong>At a glance</strong>
+            <ul class="check-list">
+              <li>One focus country a year</li>
+              <li>Intended 2027 focus: Lebanon</li>
+              <li>Small reserve for major emergencies</li>
+              <li>No Drop without a verified partner</li>
+              <li>Grants to organisations only</li>
+            </ul>
+            <p>Trustees review the focus country each year.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
