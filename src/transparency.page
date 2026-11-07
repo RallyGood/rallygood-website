@@ -18,6 +18,8 @@ description: What RallyGood will publish about every Drop – money in, money ou
             <li><strong>Charity registration:</strong> pending.</li>
             <li><strong>Donations:</strong> not being accepted.</li>
             <li><strong>Drops run:</strong> none. No funds have been raised, held or spent.</li>
+            <li><strong>Bank account and partners:</strong> none yet. We will not take donations before a bank account is open, and we will not commit funds before a partner has been assessed and approved.</li>
+            <li><strong>Where we plan to work:</strong> one focus country each year, with Lebanon intended for 2027. See <a class="text-link" href="where-we-work.html">where we work</a>.</li>
             <li><strong>Shop:</strong> {{SHOP_STATUS}}</li>
           </ul>
           <p class="small-print">We will update this page as soon as that changes.</p>

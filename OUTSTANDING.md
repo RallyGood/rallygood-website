@@ -56,3 +56,10 @@ Everything is generated from `config/shop.json` (products, prices, costs, specs,
 - Google for Nonprofits / Ad Grants: wait for charity registration (`docs/implementation/google-for-nonprofits.md`).
 - Trustee decision brief: recommendations approved (reported by Raf 2026-10-18); next steps follow the order at the end of the brief.
 - Drop tee artwork approved by trustees (reported by Raf 2026-10-18). Tees remain in preview. To go live: supply the approved final artwork files, replace the sample specs/costs, then set `detailsStatus` and `imagesStatus` to `confirmed` per product (see Shop section).
+
+## Where we work and application consistency (added 7 Nov 2026)
+- New page `/where-we-work.html`: one focus country per year (intended 2027 focus: Lebanon), a small responsive reserve for major emergencies, and the nine application countries shown as a pool to choose from, not a timetable. Wording matches the Charity Commission application (ref 5299401).
+- **Needs trustee confirmation:** the 2027 focus (Lebanon) and the size of the emergency-response limit. No figure is published; set one and add it to the page if trustees want it stated.
+- About and Transparency now say plainly that RallyGood is new, has no partner or bank account, and will not take donations before a bank account and controls are in place. Confirm this matches trustees' intentions.
+- Nature & wellbeing now states "non-clinical: no diagnosis, counselling or medical treatment", matching the application.
+- If the Commission narrows the overseas areas, update the list on `where-we-work.page` to match.
