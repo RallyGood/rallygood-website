@@ -1,0 +1,13 @@
+---
+out: islamic-giving/interest-riba.html
+title: Interest (Riba)
+description: This giving option is being developed and is not currently available.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow"><a class="text-link" href="/islamic-giving.html">Islamic Giving</a></p>
+        <h1>Interest (Riba)</h1>
+        <p class="lead-small">This giving option is being developed. Interest payments are not currently being accepted.</p>
+        <p><a class="button button-light" href="/islamic-giving.html">Back to Islamic Giving</a></p>
+      </div>
+    </section>

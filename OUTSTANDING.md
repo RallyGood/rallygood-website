@@ -12,7 +12,7 @@
 7. **Example Drops** – targets (£1,500–£7,500) and unit costs (£15–£75) are illustrative figures from the earlier draft. Confirm they are fine as examples, or replace them in `src/data/drops.json`.
 
 ## Missing information / content
-8. No bank account, payment provider, or Gift Aid wording → no donate button (deliberate).
+8. No bank account, payment provider, or Gift Aid wording → no live donate button (deliberate). **Updated 5 Nov 2026:** brief revision 3.1 (approved by trustees) allows clearly labelled demonstration giving forms (banner "Demonstration only. No payment is taken.", button "Preview confirmation"). They store and send nothing. Real payments remain off.
 9. No named delivery partner or real Drop yet.
 10. No complaints policy in the registration package (site offers "Raise a concern" by email only).
 11. No social media accounts, no photography, no team/trustee bios supplied.
@@ -63,3 +63,22 @@ Everything is generated from `config/shop.json` (products, prices, costs, specs,
 - About and Transparency now say plainly that RallyGood is new, has no partner or bank account, and will not take donations before a bank account and controls are in place. Confirm this matches trustees' intentions.
 - Nature & wellbeing now states "non-clinical: no diagnosis, counselling or medical treatment", matching the application.
 - If the Commission narrows the overseas areas, update the list on `where-we-work.page` to match.
+
+
+## Website brief 3.1 build (added 5 Nov 2026)
+Built on branch `feat/allocation-explainer` as an unmerged pull request. Raf merges. Merging to `main` deploys to production.
+
+**Release and dates**
+- Islamic Giving release flag: `islamicGivingReleased` in `config/content.json`, currently `false`. Go-live date recorded there: **Monday 1 February 2027** (one week before Ramadan 2027), provisional, trustees to confirm. The date is not checked by the build or the browser. Release is a deliberate change by Raf: set the flag to `true` and push. **Set a calendar reminder.**
+- Trustee decision still open: manual release by Raf, or an automated scheduled build-time check.
+- Trustee decision still open: the Islamic Giving source sits in `src/islamic/` in this public repository. The flag hides the pages from the live site, but anything merged to `main` is readable on GitHub. Options: accept this, or keep the content on a private branch or repository until go-live.
+
+**Zakat: open trustee decision.** Zakat is deliberately outside this build. There is no page, link, card, form, placeholder, navigation item, sitemap entry or public mention, and the build and CI fail if the word appears in built output. Do not add any until trustees decide.
+
+**Other open decisions (do not invent):** final amount presets (the demo forms use sample amounts 5, 10, 25, 50); recurring-payment provider and cancellation workflow; accounting boundary between the 85% and the 15% so no cost is counted twice; allocation for Ramadan Rally; a suitable Sadaqah Jariyah project; Ramadan daily-giving and special-night rules; Ramadan Iftar Drop budget and delivery; campaign-restriction and surplus wording; final label for the 15p control (currently "Fundraising, operations and delivery support"); whether demo forms stay demonstrations at go-live; confirmation of the Get involved wording ("Support our running costs").
+
+**Private preview:** see `docs/implementation/private-preview.md`. The preview is built from the PR branch with the flag forced on. It is noindex, not on the production domain, and can be removed without touching production. Cloudflare Pages and access restrictions need setting up by Raf (no Cloudflare access from the build environment).
+
+**Mockup:** the generated allocation mockup is a layout and interaction reference only and should be attached to the pull request with that label. Its colours, icons, wordmark and text were not used.
+
+**Approval trail:** see `docs/internal/islamic-giving-internal.md` for the internal record separating religious review, trustee approval, accounting review and technical implementation.

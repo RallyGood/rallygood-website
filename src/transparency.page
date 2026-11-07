@@ -1,6 +1,6 @@
 ---
 title: Transparency
-description: What RallyGood will publish about every Drop – money in, money out, partners, issues and close-out reports – and the current status of the charity.
+description: What RallyGood will publish about every Drop (money in, money out, partners, issues and close-out reports) and the current status of the charity.
 ---
     <section class="page-hero section-soft">
       <div class="shell">
@@ -47,6 +47,10 @@ description: What RallyGood will publish about every Drop – money in, money ou
         </div>
       </div>
     </section>
+
+{{ALLOCATION}}
+
+{{ALLOCATION_POLICY}}
 
     <section class="section section-soft">
       <div class="shell split-grid">
