@@ -1,6 +1,6 @@
 ---
 title: How it works
-description: How RallyGood Drops will work – verify, fund, deliver, prove – including the planned 85/15 split and what happens if a Drop raises too much or too little.
+description: How RallyGood Drops will work: verify, fund, deliver, prove, including the planned 85/15 split and what happens if a Drop raises too much or too little.
 ---
     <section class="page-hero section-soft">
       <div class="shell">
@@ -42,23 +42,9 @@ description: How RallyGood Drops will work – verify, fund, deliver, prove – 
 
     <section class="section" id="split">
       <div class="shell donate-grid">
-        <div class="donation-panel" data-split>
-          <p class="eyebrow">Illustration only</p>
-          <h2>85% to the Drop. 15% to keep it accountable.</h2>
-          <p class="lead-small">Try an amount to see how a gift would be split once donations open. <strong>This is not a donation form and no payment is taken.</strong></p>
-          <div class="amount-grid" role="group" aria-label="Example amounts">
-            <button type="button" data-amount="10">£10</button>
-            <button type="button" data-amount="25" class="active">£25</button>
-            <button type="button" data-amount="50">£50</button>
-            <button type="button" data-amount="100">£100</button>
-          </div>
-          <label for="custom-amount">Example amount (£)</label>
-          <input id="custom-amount" type="number" inputmode="decimal" min="1" step="any" value="25">
-          <div class="split-output" aria-live="polite">
-            <div><span>Drop fund</span><strong id="project-share">£21.25</strong></div>
-            <div><span>Operating support</span><strong id="ops-share">£3.75</strong></div>
-          </div>
-          <p class="small-print">The 15% is intended to cover payment processing, partner verification, safeguarding, reporting, website and governance. Not zero admin – honest admin.</p>
+        <div>
+          <h2 class="sr-only">Planned allocation of a standard Drop donation</h2>
+          {{ALLOCATION_COMPACT_EXAMPLE}}
         </div>
         <div>
           <p class="eyebrow">If a target is missed or exceeded</p>

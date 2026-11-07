@@ -10,7 +10,7 @@ description: RallyGood is a charity in development that will rally people around
         <div class="hero-copy">
           <p class="eyebrow"><span class="live-dot"></span> A rapid essentials charity in development</p>
           <h1>Small appeals. Real essentials. Clear proof.</h1>
-          <p class="lead">RallyGood will rally people around urgent needs like food, hygiene, warmth and shelter – then show what was funded, who delivered it and what proof was received.</p>
+          <p class="lead">RallyGood will rally people around urgent needs like food, hygiene, warmth and shelter, then show what was funded, who delivered it and what proof was received.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="drops.html">See planned Drops</a>
             <a class="button button-light" href="how-it-works.html">How it works</a>
@@ -46,6 +46,8 @@ description: RallyGood is a charity in development that will rally people around
         <div><strong>Every</strong><span>Drop closes with proof</span></div>
       </div>
     </section>
+
+{{ALLOCATION}}
 
     <section class="section" id="what">
       <div class="shell">
@@ -97,8 +99,8 @@ description: RallyGood is a charity in development that will rally people around
           <article class="proof-card top-card">
             <div class="proof-card-header"><span>Proof Card template</span><strong>Not a real Drop</strong></div>
             <div class="proof-line"><span>Need verified by</span><strong class="ph">Partner name + date</strong></div>
-            <div class="proof-line"><span>Amount raised</span><strong class="ph">£ –</strong></div>
-            <div class="proof-line"><span>Amount spent</span><strong class="ph">£ –</strong></div>
+            <div class="proof-line"><span>Amount raised</span><strong class="ph">£ -</strong></div>
+            <div class="proof-line"><span>Amount spent</span><strong class="ph">£ -</strong></div>
             <div class="proof-line"><span>Items purchased</span><strong class="ph">Itemised list</strong></div>
             <div class="proof-line"><span>Delivery evidence</span><strong class="ph">Sign-off, safe photos</strong></div>
             <div class="proof-line"><span>Close-out</span><strong class="ph">Published report</strong></div>
@@ -150,7 +152,7 @@ description: RallyGood is a charity in development that will rally people around
           <details open><summary>Is RallyGood a registered charity?</summary><p>Not yet. Charity registration is pending. We will say so clearly until registration is complete and we have a charity number to show.</p></details>
           <details><summary>Can I donate now?</summary><p>No. We are not accepting donations until registration, banking and fundraising controls are in place. Get in touch and we will let you know when the first Drop opens.</p></details>
           <details><summary>What is a Drop?</summary><p>A Drop is a small urgent appeal for practical essentials, with a target, a delivery route, a cost breakdown and a close-out report.</p></details>
-          <details><summary>How will money be split?</summary><p>The planned default is 85% to the Drop fund and 15% to the operating and transparency costs that make verification and reporting possible, shown clearly before anyone gives.</p></details>
+          <details><summary>How will money be split?</summary><p>The planned default for a standard Drop donation is {{ALLOC_DROP_PERCENT}}% to the Drop fund. {{ALLOC_CANONICAL}} We will show the split clearly before anyone gives. <a class="text-link" href="transparency.html#allocation-policy">Read our allocation policy</a>.</p></details>
           <details><summary>Will you ship goods from the UK?</summary><p>Not by default. The plan is to raise funds here and buy locally or regionally through verified partners, which is usually faster, cheaper and better for local markets.</p></details>
           <details><summary>Can businesses sponsor a Drop?</summary><p>Yes. See <a class="text-link" href="get-involved.html#sponsors">Get involved</a> or email <a class="text-link" href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p></details>
         </div>

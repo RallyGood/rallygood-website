@@ -1,0 +1,52 @@
+---
+out: islamic-giving/ramadan-rally.html
+title: Ramadan Rally
+description: Prepare for Ramadan and give during it. Early donations would fund the next Ramadan campaign. Demonstration only. No payment is taken.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow"><a class="text-link" href="/islamic-giving.html">Islamic Giving</a></p>
+        <h1>Ramadan Rally</h1>
+        <p class="lead-small">Prepare for Ramadan and give during it.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell prose">
+        <h2>Early funding is for the next Ramadan campaign.</h2>
+        <p class="lead-small">Early donations fund the next Ramadan campaign specifically. They are not unrestricted, year-round essentials donations. RallyGood is not accepting donations yet.</p>
+        <p class="lead-small"><strong>{{NOTICE_RAMADAN_ALLOC}}</strong> Read <a class="text-link" href="/transparency.html#allocation-policy">our allocation policy</a>.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="shell prose">
+        <h2>How this page will change through the year.</h2>
+        {{RAMADAN_STAGES}}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <h2>Draft concepts</h2>
+        <p class="lead-small">These are ideas under consideration, not operational promises.</p>
+        <div class="concept-grid">
+          <div>
+            <p class="status-note"><span class="status-pill planned">Draft concept</span></p>
+            <h3>Give £1 a day during Ramadan</h3>
+            <p>A proposed daily-giving option. The scheduling below is a demonstration only.</p>
+            {{DEMO_RAMADAN}}
+          </div>
+          <article class="give-card give-card-dev">
+            <div class="card-topline"><span class="status-pill planned">Draft concept</span></div>
+            <h3>Ramadan Iftar Drop</h3>
+            <p>A concept for a Ramadan food-support Drop. Recipient numbers, costs, delivery partners and distribution arrangements have not been set.</p>
+          </article>
+          <article class="give-card give-card-dev">
+            <div class="card-topline"><span class="status-pill planned">Draft concept</span></div>
+            <h3>Special-night giving</h3>
+            <p>A concept for giving on particular nights of Ramadan. No nights have been named, there is no schedule and no payment will be taken.</p>
+          </article>
+        </div>
+      </div>
+    </section>

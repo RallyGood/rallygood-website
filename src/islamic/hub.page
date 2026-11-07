@@ -1,0 +1,25 @@
+---
+out: islamic-giving.html
+title: Islamic Giving
+description: Ways to give that reflect Islamic traditions of generosity, alongside RallyGood's practical Drops. Demonstration only. RallyGood is not yet accepting donations.
+---
+    <section class="page-hero section-soft">
+      <div class="shell">
+        <p class="eyebrow">Ways to Give</p>
+        <h1>Islamic Giving</h1>
+        <p class="lead-small">Ways to give that reflect Islamic traditions of generosity, alongside our practical Drops.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <p class="small-print">Available experiences are demonstrations only. No payment is taken. Options marked in development are not available.</p>
+        <div class="give-grid">
+          <article class="give-card"><div class="card-topline"><span class="status-pill planned">Demonstration available</span></div><h3>Give Sadaqah</h3><p>Voluntary charity, given in any amount at any time. Support approved Drops or our rolling essentials fund.</p><a class="button button-light full" href="/islamic-giving/give-sadaqah.html">View Give Sadaqah</a></article>
+          <article class="give-card"><div class="card-topline"><span class="status-pill planned">Demonstration available</span></div><h3>Friday Rally</h3><p>Give every Friday.</p><a class="button button-light full" href="/islamic-giving/friday-rally.html">View Friday Rally</a></article>
+          <article class="give-card give-card-dev"><div class="card-topline"><span class="status-pill planned">In development</span></div><h3>Interest (Riba)</h3><p>Being developed. Not currently available.</p><a class="button button-light full" href="/islamic-giving/interest-riba.html">Read the notice</a></article>
+          <article class="give-card give-card-dev"><div class="card-topline"><span class="status-pill planned">In development</span></div><h3>Sadaqah Jariyah</h3><p>Being developed. Not currently available.</p><a class="button button-light full" href="/islamic-giving/sadaqah-jariyah.html">Read the notice</a></article>
+          <article class="give-card"><div class="card-topline"><span class="status-pill planned">Demonstration available</span></div><h3>Ramadan Rally</h3><p>Prepare for Ramadan and give during it.</p><a class="button button-light full" href="/islamic-giving/ramadan-rally.html">View Ramadan Rally</a></article>
+        </div>
+      </div>
+    </section>
